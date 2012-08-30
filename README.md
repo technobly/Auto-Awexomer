@@ -1,8 +1,3 @@
-Auto-Awexomer
-=============
-
-A Turntable.fm bookmarklet that automatically awexomes every song for you, and looks good doing it.
-
 #B^Dub's Turntable.fm Auto Awexome
 ![B^Dub's Auto Awexome](http://www.pinnacleofdestruction.net/tt/images/aa-small.png)
 
