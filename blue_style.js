@@ -18,7 +18,7 @@ function blueStyle() {
 			break;
 			case 3:
 				//floor
-				$(this).attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor2.png");
+				$(this).attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor3.png");
 			break;
 			case 4:
 				//table
@@ -32,10 +32,9 @@ function blueStyle() {
 	});
 
 	//song board
-	//$("#songboard").css("font-family", "Arial Black").css("color", "black");
 	$("#songboard").css("color", "cyan");
-	$("#songboard_artist").css("text-shadow", "none");
-	$("#songboard_title").css("text-shadow", "none");
+	$("#songboard_artist").css("text-shadow", "none"); // 40px default, has a red shadow by default, removing it makes it crisp
+	$("#songboard_title").css("text-shadow", "none").css("font-size","18px"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
 
 	//left speaker
 	//$("#left_speaker").css("visibility", "hidden");
