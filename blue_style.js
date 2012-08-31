@@ -51,9 +51,9 @@ function blueStyle() {
 	//Vote Down Button
 	$("#KhSjI").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 
-    //needle
-	$("#vote_needle").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png') 0 0 no-repeat");
-
+    //Needle
+	$("#turntable").children(":first-child").children(":nth-child(6)").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
+	
 	//Mute Button
 	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
 
