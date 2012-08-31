@@ -34,8 +34,8 @@ function blueStyle() {
 	//song board
 	//$("#songboard").css("font-family", "Arial Black").css("color", "black");
 	$("#songboard").css("color", "cyan");
-	//$("#songboard_artist").css("text-shadow", "none").css("font-size", "30px");
-	//$("#songboard_title").css("text-shadow", "none");
+	$("#songboard_artist").css("text-shadow", "none");
+	$("#songboard_title").css("text-shadow", "none");
 
 	//left speaker
 	//$("#left_speaker").css("visibility", "hidden");
