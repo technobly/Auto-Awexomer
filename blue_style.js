@@ -52,7 +52,7 @@ function blueStyle() {
 	$("#KhSjI").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 
     //needle
-	$("#vote_needle").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle.png') 0 0 no-repeat");
+	$("#vote_needle").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png') 0 0 no-repeat");
 
 	//Mute Button
 	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
