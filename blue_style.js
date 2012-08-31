@@ -1,15 +1,15 @@
 if (!($ = window.jQuery)) { // typeof jQuery=='undefined' works too
 	script = document.createElement( 'script' );
    script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
-	script.onload=turnTheTable;
+	script.onload=blueStyle;
 	document.body.appendChild(script);
 }
 else {
-	turnTheTable();
+	blueStyle();
 }
 
-function turnTheTable() {
-	alert("B^Dub's Blue Style");
+function blueStyle() {
+	alert("B^Dub's Blue Style Enable");
 	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i){
 		switch(i){
 			case 2:
@@ -18,7 +18,7 @@ function turnTheTable() {
 			break;
 			case 3:
 				//floor
-				//$(this).attr("src", "http://billyrennekamp.com/turntable/new/floor2.png");
+				$(this).attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor2.png");
 			break;
 			case 4:
 				//table
@@ -37,19 +37,6 @@ function turnTheTable() {
 	//$("#songboard_artist").css("text-shadow", "none").css("font-size", "30px");
 	//$("#songboard_title").css("text-shadow", "none");
 
-	/*
-	//buttons
-	$(".mv_container").prev().prev().each(function(i){
-		if(i == 0){
-			$(this).css("background", "url('http://billyrennekamp.com/turntable/new/yes.png') 0 0 no-repeat");
-		}
-		else{
-			$(this).css("background", "url('http://billyrennekamp.com/turntable/new/no.png') 0 0 no-repeat");
-		}
-
-	});
-	*/	
-
 	//left speaker
 	//$("#left_speaker").css("visibility", "hidden");
 	$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker2.png') 0 0 no-repeat");
@@ -65,6 +52,9 @@ function turnTheTable() {
 	$("#KhSjI").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 
     //needle
-	//$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "http://billyrennekamp.com/turntable/new/needle.png");
+	$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle.png");
+
+	//Mute Button
+	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
 
 }
