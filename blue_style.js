@@ -12,19 +12,19 @@ function turnTheTable() {
 	alert("B^Dub's Blue Style");
 	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i){
 		switch(i){
-			case 1:
+			case 2:
 				//background
 				$(this).attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/wallpaper2.png");
 			break;
-			case 2:
+			case 3:
 				//floor
 				$(this).attr("src", "http://billyrennekamp.com/turntable/new/floor2.png");
 			break;
-			case 3:
+			case 4:
 				//table
 				$(this).attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/dj_table2.png");
 			break;
-			case 4:
+			case 5:
 				//gauge
 				$(this).attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/gauge2.png");
 			break;
