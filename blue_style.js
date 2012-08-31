@@ -9,7 +9,7 @@ else {
 }
 
 function blueStyle() {
-	alert("B^Dub's Blue Style Enable");
+	//alert("B^Dub's Blue Style Enable");
 	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i){
 		switch(i){
 			case 2:
@@ -18,7 +18,7 @@ function blueStyle() {
 			break;
 			case 3:
 				//floor
-				$(this).attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor3.png");
+				$(this).attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor2.png");
 			break;
 			case 4:
 				//table
@@ -37,12 +37,10 @@ function blueStyle() {
 	$("#songboard_title").css("text-shadow", "none").css("font-size","18px"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
 
 	//left speaker
-	//$("#left_speaker").css("visibility", "hidden");
 	$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker2.png') 0 0 no-repeat");
 
 	//right speaker
-    //$("#right_speaker").css("visibility", "hidden");
-	$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png') 0 0 no-repeat");
+    $("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png') 0 0 no-repeat");
 
 	//Vote Up Button
 	$("#VMosQiJNkOo").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
@@ -52,9 +50,7 @@ function blueStyle() {
 
     //Meter Needle
 	$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
-	//$("#turntable").children(":first-child").children(":nth-child(6)").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
-	
+		
 	//Mute Button
 	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
-
 }
