@@ -18,7 +18,7 @@ function turnTheTable() {
 			break;
 			case 3:
 				//floor
-				$(this).attr("src", "http://billyrennekamp.com/turntable/new/floor2.png");
+				//$(this).attr("src", "http://billyrennekamp.com/turntable/new/floor2.png");
 			break;
 			case 4:
 				//table
@@ -48,7 +48,7 @@ function turnTheTable() {
 		}
 
 	});
-	*/
+	*/	
 
 	//left speaker
 	//$("#left_speaker").css("visibility", "hidden");
@@ -57,6 +57,11 @@ function turnTheTable() {
 	//right speaker
     //$("#right_speaker").css("visibility", "hidden");
 	$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png') 0 0 no-repeat");
+
+	//Vote Buttons
+	$("#VMosQiJNkOo").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
+
+	$("#KhSjI").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 
     //needle
 	//$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "http://billyrennekamp.com/turntable/new/needle.png");
