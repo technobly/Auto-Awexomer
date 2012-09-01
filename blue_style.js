@@ -1,6 +1,6 @@
 if (!($ = window.jQuery)) { // typeof jQuery=='undefined' works too
 	script = document.createElement( 'script' );
-   script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
+	script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
 	script.onload=blueStyle;
 	document.body.appendChild(script);
 }
@@ -48,7 +48,7 @@ function blueStyle() {
 	//Vote Down Button
 	$("#KhSjI").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 
-    //Meter Needle
+	//Meter Needle
 	$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
 		
 	//Mute Button
