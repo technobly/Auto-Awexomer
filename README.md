@@ -1,16 +1,14 @@
-#B^Dub's Turntable.fm Auto Awexome
-![B^Dub's Auto Awexome](http://www.pinnacleofdestruction.net/tt/images/aa-small.png)
+#B^Dub's Turntable.fm Auto Awexomer
+![B^Dub's Auto Awexomer](http://i.imgur.com/3AzI3.png)
 
-This script allows you to enjoy turntable.fm music without getting paranoid about voting for every song, which you should be doing! Instead, forget the hassle and turn this on to have the songs you listen to get voted awesome automatically!
-
-If you do not like a song, simply go back to the turntable.fm room tab and click lame, and the counter will not resume until the next song!
-
+This script allows you to enjoy turntable.fm music without worrying about voting for every song, which you should be doing! Instead, forget the hassle and turn this on to have the songs you listen to get voted awexome automatically! If you don't like a song, simply go back to the turntable.fm room tab and click lame, and the counter will not resume until the next song!
+            
 ## Features
 
 * Automatically votes awexome for every song you listen to in your turntable.fm room.
-* Allows for song laming. If you don't like a song, this script isn't like others. It will see that you lame'd a song and wait till the next song to start awexoming again.
-* Never go AFK! This script will keep you active in the room; so if you are working while DJ'ing, you can be sure you will never get booted for being AFK.
-* Awexome is spelled with an X, for eXtremely awexome and don't you question it :-P
+* Allows for song laming. It will see that you lame'd a song and wait till the next song to start awexoming again.
+* No more idle boot! If you have ever sat in a room too long without voting, you will get booted back to the lobby for being "falling asleep". No more! This script resets your idle timer.
+* Awexome is spelled with an X, for eXtremely awexome and don't you question it :P
 
 ## Download
 
@@ -18,5 +16,5 @@ In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbyt
 
 ## Changelog
 
-### August 30th, 2012
+### August 31th, 2012
 * Initial Release
