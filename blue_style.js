@@ -1,3 +1,13 @@
+/**
+ * Turntable.fm Blue Style Script
+ * Created by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
+ * Modified by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
+ * Last Updated: August 31th, 2012
+ * 
+ * If you have any questions or concerns,
+ * find me in http://turntable.fm/code_ninjas
+ */
+
 if (!($ = window.jQuery)) { // typeof jQuery=='undefined' works too
 	script = document.createElement( 'script' );
 	script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
