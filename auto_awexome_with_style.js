@@ -84,8 +84,8 @@ function blueStyle() {
 }
 
 if(typeof double_click_check2 === "undefined") {
-  //var double_click_check2 = true; //allow awexomer to be turned on only once
-  alert("first define double2");
+  var double_click_check2 = true; //allow awexomer to be turned on only once
+  //alert("first define double2");
 }
 if(double_click_check2) {
   //alert("first run double2");
