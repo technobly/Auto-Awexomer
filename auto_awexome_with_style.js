@@ -11,23 +11,31 @@
 // Blue Style
 // -----------------------------------------------------
 if (!($ = window.jQuery)) { // typeof jQuery=='undefined' works too
-  script = document.createElement( 'script' );
-  script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
-	script.onload=blueStyle;
-	document.body.appendChild(script);
+  if(typeof double_click_check === "undefined") { 
+    var double_click_check = true; //allow styles to be applied only once
+    alert("first define double");
+  }
+  if(double_click_check) {
+    alert("first run double");  
+    script = document.createElement( 'script' );
+    script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
+    script.onload=blueStyle;
+    document.body.appendChild(script);
+    double_click_check = false;
+  }
 }
 else {
-	blueStyle();
+  if(typeof double_click_check === "undefined") { 
+    var double_click_check = true; //allow styles to be applied only once
+    alert("first define double");
+  }
+  if(double_click_check) {
+    blueStyle();
+  }
 }
-
+	
 function blueStyle() {
 	//alert("B^Dub's Blue Style Enable");
-	if(typeof double_click_check === "undefined") { 
-		var double_click_check = true; //allow styles to be applied only once
-		alert("first define double");
-	}
-	if(double_click_check) {
-		alert("first run double");
 	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i){
 		switch(i){
 			case 2:
@@ -71,10 +79,7 @@ function blueStyle() {
 
 	//Mute Button
 	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
-	double_click_check = false;
-	}
 }
-
 
 if(typeof double_click_check2 === "undefined") {
   var double_click_check2 = true; //allow styles to be applied only once
