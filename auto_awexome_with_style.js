@@ -30,7 +30,9 @@ else {
     alert("first define double");
   }
   if(double_click_check) {
+    alert("first run double");  
     blueStyle();
+    double_click_check = false;
   }
 }
 	
