@@ -22,8 +22,12 @@ else {
 
 function blueStyle() {
 	//alert("B^Dub's Blue Style Enable");
-	if(typeof double_click_check === "undefined") var double_click_check = true; //allow styles to be applied only once
+	if(typeof double_click_check === "undefined") { 
+		var double_click_check = true; //allow styles to be applied only once
+		alert("first define double");
+	}
 	if(double_click_check) {
+		alert("first run double");
 	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i){
 		switch(i){
 			case 2:
@@ -72,8 +76,12 @@ function blueStyle() {
 }
 
 
-if(typeof double_click_check2 === "undefined") var double_click_check2 = true; //allow styles to be applied only once
+if(typeof double_click_check2 === "undefined") {
+  var double_click_check2 = true; //allow styles to be applied only once
+  alert("first define double2");
+}
 if(double_click_check2) {
+  alert("first run double2");
   double_click_check2 = false; //make sure a second click doesn't re-apply the styles
 // Auto Awexomer
 // -----------------------------------------------------
