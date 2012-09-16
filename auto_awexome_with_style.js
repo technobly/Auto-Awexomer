@@ -13,10 +13,10 @@
 if (!($ = window.jQuery)) { // typeof jQuery=='undefined' works too
   if(typeof double_click_check === "undefined") { 
     var double_click_check = true; //allow styles to be applied only once
-    alert("first define double");
+    //alert("first define double");
   }
   if(double_click_check) {
-    alert("first run double");  
+    //alert("first run double");  
     script = document.createElement( 'script' );
     script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
     script.onload=blueStyle;
@@ -27,10 +27,10 @@ if (!($ = window.jQuery)) { // typeof jQuery=='undefined' works too
 else {
   if(typeof double_click_check === "undefined") { 
     var double_click_check = true; //allow styles to be applied only once
-    alert("first define double");
+    //alert("first define double");
   }
   if(double_click_check) {
-    alert("first run double");  
+    //alert("first run double");  
     blueStyle();
     double_click_check = false;
   }
@@ -84,12 +84,12 @@ function blueStyle() {
 }
 
 if(typeof double_click_check2 === "undefined") {
-  var double_click_check2 = true; //allow styles to be applied only once
+  //var double_click_check2 = true; //allow awexomer to be turned on only once
   alert("first define double2");
 }
 if(double_click_check2) {
-  alert("first run double2");
-  double_click_check2 = false; //make sure a second click doesn't re-apply the styles
+  //alert("first run double2");
+  double_click_check2 = false; //make sure a second click doesn't turn on the awexomer again
 // Auto Awexomer
 // -----------------------------------------------------
 $(document).ready(function() {
@@ -312,6 +312,7 @@ $(document).ready(function() {
       window.bdub.stop();
       window.bdub.arc.remove();
       window.bdub.botMessage.remove();
+      double_click_check2 = true; //allow awexomer to be turned on again
     }
   });
   
