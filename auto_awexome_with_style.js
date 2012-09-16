@@ -67,7 +67,7 @@ function blueStyle() {
 
 	//Mute Button
 	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
-	double_click_check = false; //make sure a second click doesn't re-apply the styles
+	
 	}
 }
 
