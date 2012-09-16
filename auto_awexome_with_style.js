@@ -22,7 +22,7 @@ else {
 
 function blueStyle() {
 	//alert("B^Dub's Blue Style Enable");
-	if(double_click_check === "undefined") var double_click_check = true; //allow styles to be applied only once
+	if(typeof double_click_check === "undefined") var double_click_check = true; //allow styles to be applied only once
 	if(double_click_check) {
 	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i){
 		switch(i){
