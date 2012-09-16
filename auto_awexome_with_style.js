@@ -67,13 +67,13 @@ function blueStyle() {
 
 	//Mute Button
 	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
-	
+	double_click_check = false;
 	}
 }
 
 
-//if(typeof double_click_check === "undefined") var double_click_check = true; //allow styles to be applied only once
-if(double_click_check) {
+if(typeof double_click_check2 === "undefined") var double_click_check2 = true; //allow styles to be applied only once
+if(double_click_check2) {
 // Auto Awexomer
 // -----------------------------------------------------
 $(document).ready(function() {
@@ -302,5 +302,5 @@ $(document).ready(function() {
   window.bdub.init();
   
 });
-  double_click_check = false; //make sure a second click doesn't re-apply the styles
+  double_click_check2 = false; //make sure a second click doesn't re-apply the styles
 }
