@@ -71,11 +71,13 @@ function blueStyle() {
 	}
 }
 
+
+//if(typeof double_click_check === "undefined") var double_click_check = true; //allow styles to be applied only once
+if(double_click_check) {
 // Auto Awexomer
 // -----------------------------------------------------
 $(document).ready(function() {
-  if(typeof double_click_check === "undefined") var double_click_check = true; //allow styles to be applied only once
-  if(double_click_check) {
+  
   if(window.bdub == undefined) window.bdub = { };
   
   window.bdub = $.extend(window.bdub, {
@@ -298,6 +300,7 @@ $(document).ready(function() {
   });
   
   window.bdub.init();
-  double_click_check = false; //make sure a second click doesn't re-apply the styles
-  }
+  
 });
+  double_click_check = false; //make sure a second click doesn't re-apply the styles
+}
