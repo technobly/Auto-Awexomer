@@ -74,6 +74,7 @@ function blueStyle() {
 
 if(typeof double_click_check2 === "undefined") var double_click_check2 = true; //allow styles to be applied only once
 if(double_click_check2) {
+  double_click_check2 = false; //make sure a second click doesn't re-apply the styles
 // Auto Awexomer
 // -----------------------------------------------------
 $(document).ready(function() {
@@ -302,5 +303,5 @@ $(document).ready(function() {
   window.bdub.init();
   
 });
-  double_click_check2 = false; //make sure a second click doesn't re-apply the styles
+  
 }
