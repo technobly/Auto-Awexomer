@@ -15,15 +15,15 @@ if (!($ = window.jQuery)) { // typeof jQuery=='undefined' works too
   script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
 	script.onload=blueStyle;
 	document.body.appendChild(script);
-	alert("1");
 }
 else {
 	blueStyle();
-	alert("2");
 }
 
 function blueStyle() {
 	//alert("B^Dub's Blue Style Enable");
+	if(double_click_check === "undefined") var double_click_check = true; //allow styles to be applied only once
+	if(double_click_check) {
 	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i){
 		switch(i){
 			case 2:
@@ -67,6 +67,8 @@ function blueStyle() {
 
 	//Mute Button
 	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
+	double_click_check = false; //make sure a second click doesn't re-apply the styles
+	}
 }
 
 // Auto Awexomer
