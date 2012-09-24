@@ -152,7 +152,7 @@ $(document).ready(function() {
     },
     listener: function(d) {
       if(d.command == 'newsong' && d.room.metadata.current_dj != bdub.ttObj.selfId) {
-      	//if(bdub.ttObj.selfId != "4fde9255aaa5cd1e680004f8" && d.room.metadata.current_dj != "503bf99baaa5cd1b5200075f") {
+      	if(!(bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && d.room.metadata.current_dj == "503bf99baaa5cd1b5200075f") ) {
         	clearTimeout(window.bdub.awesomer);
         	clearInterval(window.bdub.arcInt);
         	window.bdub.lamed = false;
@@ -178,7 +178,7 @@ $(document).ready(function() {
           	window.bdub.setArc(window.bdub.deg, false);
           	window.bdub.deg += window.bdub.degAmt;
         	}, 50);
-      	//} // end if my bots
+      	} // end if() my bots and I
       }
       else if(d.command == 'update_votes') {
         $.each(d.room.metadata.votelog, function() {
