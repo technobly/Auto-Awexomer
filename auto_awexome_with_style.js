@@ -151,32 +151,34 @@ $(document).ready(function() {
         return b.promise();
     },
     listener: function(d) {
-      if(d.command == 'newsong' && d.room.metadata.current_dj != bdub.ttObj.selfId && (bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && d.room.metadata.current_dj != "503bf99baaa5cd1b5200075f")) {
-        clearTimeout(window.bdub.awesomer);
-        clearInterval(window.bdub.arcInt);
-        window.bdub.lamed = false;
-        var timeAmt = Math.floor(Math.random()*window.bdub.ttObj.currentSong.metadata.length/4*1000);
-        window.bdub.botMessage.find('span').html('');
-        window.bdub.awesomer = setTimeout(function() {
-          window.bdub.vote('up');
-        }, timeAmt);
+      if(d.command == 'newsong' && d.room.metadata.current_dj != bdub.ttObj.selfId) {
+      	if(bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && d.room.metadata.current_dj != "503bf99baaa5cd1b5200075f") {
+        	clearTimeout(window.bdub.awesomer);
+        	clearInterval(window.bdub.arcInt);
+        	window.bdub.lamed = false;
+        	var timeAmt = Math.floor(Math.random()*window.bdub.ttObj.currentSong.metadata.length/4*1000);
+        	window.bdub.botMessage.find('span').html('');
+        	window.bdub.awesomer = setTimeout(function() {
+	          window.bdub.vote('up');
+        	}, timeAmt);
         
-        if(!window.bdub.showArc) return;
+        	if(!window.bdub.showArc) return;
 
-        window.bdub.deg = 0.0;
-        window.bdub.degAmt = 180 / timeAmt * 55;
-        if(window.bdub.arcInt != 0) {
-          clearInterval(window.bdub.arcInt);
-          window.bdub.arcInt = 0;
-        }
-        window.bdub.arcInt = setInterval(function() {
-          if(window.bdub.deg >= 180) {
-            clearInterval(window.bdub.arcInt);
-            window.bdub.arcInt = 0;
-          }
-          window.bdub.setArc(window.bdub.deg, false);
-          window.bdub.deg += window.bdub.degAmt;
-        }, 50);
+        	window.bdub.deg = 0.0;
+        	window.bdub.degAmt = 180 / timeAmt * 55;
+        	if(window.bdub.arcInt != 0) {
+	          clearInterval(window.bdub.arcInt);
+          	window.bdub.arcInt = 0;
+        	}
+        	window.bdub.arcInt = setInterval(function() {
+	          if(window.bdub.deg >= 180) {
+            	clearInterval(window.bdub.arcInt);
+            	window.bdub.arcInt = 0;
+          	}
+          	window.bdub.setArc(window.bdub.deg, false);
+          	window.bdub.deg += window.bdub.degAmt;
+        	}, 50);
+      	}
       }
       else if(d.command == 'update_votes') {
         $.each(d.room.metadata.votelog, function() {
