@@ -151,7 +151,7 @@ $(document).ready(function() {
         return b.promise();
     },
     listener: function(d) {
-      if(d.command == 'newsong' && d.room.metadata.current_dj != bdub.ttObj.selfId && ((bdub.ttObj.selfId != "4fde9255aaa5cd1e680004f8") && (d.room.metadata.current_dj != "503bf99baaa5cd1b5200075f")) {
+      if(d.command == 'newsong' && d.room.metadata.current_dj != bdub.ttObj.selfId && (bdub.ttObj.selfId != "4fde9255aaa5cd1e680004f8" && d.room.metadata.current_dj != "503bf99baaa5cd1b5200075f")) {
         clearTimeout(window.bdub.awesomer);
         clearInterval(window.bdub.arcInt);
         window.bdub.lamed = false;
