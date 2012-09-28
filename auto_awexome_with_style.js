@@ -152,7 +152,7 @@ $(document).ready(function() {
     },
     listener: function(d) {
       if(d.command == 'newsong' && d.room.metadata.current_dj != bdub.ttObj.selfId) {
-      	if(!(bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && d.room.metadata.current_dj == "503bf99baaa5cd1b5200075f") ) {
+      	if(!(bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && (d.room.metadata.current_dj == "503bf99baaa5cd1b5200075f" || d.room.metadata.current_dj == "5022e5c6aaa5cd20d6000009" || d.room.metadata.current_dj == "4ffd38d1aaa5cd3dc80000a3")) ) {
         	clearTimeout(window.bdub.awesomer);
         	clearInterval(window.bdub.arcInt);
         	window.bdub.lamed = false;
