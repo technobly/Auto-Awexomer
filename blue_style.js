@@ -2,7 +2,7 @@
  * Turntable.fm Blue Style Script
  * Created by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
  * Modified by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
- * Last Updated: August 31th, 2012
+ * Last Updated: October 1st, 2012
  * 
  * If you have any questions or concerns,
  * find me in http://turntable.fm/code_ninjas
@@ -56,7 +56,7 @@ function blueStyle() {
 	//$("#hwdSSRfEep").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 	
 	//Vote Up Button
-	$("#MHRnjLYlrb").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
+	$("#KvclBnjL").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
 
 	//Meter Needle
 	$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
