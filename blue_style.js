@@ -38,7 +38,11 @@ function blueStyle() {
 	// Vote Down Button
 	//$("#hwdSSRfEep").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 	// Vote Up Button
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(13)").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
+	//$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(13)").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
+	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i) {
+		if($(this).css("left") == "370px")
+			$(this).css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
+	});
 	// Meter Needle
 	$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
 	// Mute Button
