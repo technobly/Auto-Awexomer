@@ -20,13 +20,13 @@ else {
 
 function blueStyle() {
 	// Wallpaper
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(2)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/wallpaper2.png");
+	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(3)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/wallpaper2.png");
 	// Floor
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(2)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor2.png");
+	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(4)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor2.png");
 	// DJ Table
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(2)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/dj_table2.png");
+	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(5)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/dj_table2.png");
 	// Guage
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(2)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/gauge2.png");
+	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(6)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/gauge2.png");
 	// Song Board
 	$("#songboard").css("color", "cyan");
 	$("#songboard_artist").css("text-shadow", "none"); // 40px default, has a red shadow by default, removing it makes it crisp
