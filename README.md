@@ -18,5 +18,8 @@ In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbyt
 
 ## Changelog
 
+### October 2nd, 2012
+* Finally changed the Awexome button selection so it will stay blue, always ;-)
+ 
 ### August 31th, 2012
 * Initial Release
