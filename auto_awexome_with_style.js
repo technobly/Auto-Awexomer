@@ -1,7 +1,9 @@
 /**
  * Turntable.fm Auto Awexomer with Style Script
- * Created by Izzmo, https://github.com/izzmo/AutoAwesomer
- * Modified by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
+ * Auto bop code by Izzmo, https://github.com/izzmo/AutoAwesomer
+ * Styling examples by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
+ * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
+ * Photoshop work by B^Dub
  * Last Updated: October 1st, 2012
  * 
  * If you have any questions or concerns,
