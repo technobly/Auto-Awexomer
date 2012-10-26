@@ -4,7 +4,7 @@
  * Styling examples by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
  * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
  * Photoshop work by B^Dub
- * Last Updated: October 2nd, 2012
+ * Last Updated: October 26th, 2012
  * 
  * If you have any questions or concerns,
  * find me in http://turntable.fm/code_ninjas
@@ -52,9 +52,11 @@ function blueStyle() {
 	$("#songboard_artist").css("text-shadow", "none"); // 40px default, has a red shadow by default, removing it makes it crisp
 	$("#songboard_title").css("text-shadow", "none").css("font-size","18px"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
 	// Left Speaker
-	$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker2.png') 0 0 no-repeat");
+	//$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker2.png') 0 0 no-repeat");
+	$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker4.png') 0 0 no-repeat").css("top","120px");
 	// Right Speaker
-	$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png') 0 0 no-repeat");
+	//$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png') 0 0 no-repeat");
+	$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker4.png') 0 0 no-repeat").css("top","112px");
 	// Vote Down Button
 	//$("#hwdSSRfEep").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 	// Vote Up Button
