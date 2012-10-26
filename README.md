@@ -18,6 +18,9 @@ In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbyt
 
 ## Changelog
 
+### October 26th, 2012
+* Updated to work with TT's Halloween Theme, but keeping everything blue ^_^
+
 ### October 2nd, 2012
 * Finally changed the Awexome button selection so it will stay blue, always ;-)
  
