@@ -9,6 +9,7 @@ This script allows you to enjoy turntable.fm music without worrying about voting
 * Allows for song laming. It will see that you lame'd a song and wait till the next song to start awexoming again.
 * No more idle boot! If you have ever sat in a room too long without voting, you will get booted back to the lobby for being "falling asleep". No more! This script resets your idle timer.
 * Awexome is spelled with an X, for eXtremely awexome and don't you question it :P
+* Based on Izzmo's AutoAwesomer https://github.com/Izzmo/AutoAwesomer
 
 ## Download
 
