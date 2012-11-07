@@ -244,9 +244,36 @@ $(document).ready(function() {
 
         window.bdub.botMessage =          $('<div id="bot-message">B^Dub\'s Auto Awexomer. <span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: #00F0FF; font-weight: bold;">Turn off</a></div>');
         window.bdub.flagMessage =      $('<div id="flag-message"><a href="#" style="text-decoration: none; color: #00F0FF; font-weight: bold;">|flag stickers|</a></div>');
-        window.bdub.botMessage.css({      position: 'fixed', color: 'white', top: '-1px', left: '13px', zIndex: '5000', textAlign: 'left', paddingLeft: '2px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'}); 
-        window.bdub.flagMessage.css({     position: 'fixed', color: 'white', top: '41px', left: '350px', zIndex: '5000', textAlign: 'left', paddingLeft: '2px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'}); 
-        
+        window.bdub.botMessage.css({
+          position: 'fixed',
+          color: 'white',
+          top: '-1px',
+          //left: '13px',
+          zIndex: '5000',
+          textAlign: 'left',
+          //paddingLeft: '2px',
+          paddingLeft: '13px',
+          paddingTop: '2px',
+          paddingRight: '2px',
+          paddingBottom: '2px',
+          fontSize: '10px',
+          fontFace: 'Verdana'
+        });
+        window.bdub.flagMessage.css({
+          position: 'fixed',
+          color: 'white',
+          top: '41px',
+          //left: '350px',
+          zIndex: '5000',
+          textAlign: 'left',
+          //paddingLeft: '2px',
+          paddingLeft: '350px',
+          paddingTop: '2px',
+          paddingRight: '2px',
+          paddingBottom: '2px',
+          fontSize: '10px',
+          fontFace: 'Verdana'
+        });
 
         $('.header').append(window.bdub.botMessage);
         window.bdub.botMessage.find('a').click(function(msg1) {
@@ -263,6 +290,7 @@ $(document).ready(function() {
             window.bdub.savedStickers = data.placements;
           });
           window.bdub.placeStickers(window.bdub.flag);
+          alert("If you click \"Turn Off\" it will restore your old stickers.");
         });
 
         var buttons = $('.roomView > div:nth-child(2) a[id]'); // 1st is Awesome button, 2nd is Lame
