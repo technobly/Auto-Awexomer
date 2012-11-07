@@ -7,7 +7,7 @@
  * Last Updated: November 6th, 2012
  * 
  * If you have any questions or concerns,
- * find me in http://turntable.fm/code_ninjas
+ * find me in http://turntable.fm/bdubs
  */
 
 // Blue Style
