@@ -4,7 +4,7 @@
  * Styling examples by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
  * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
  * Photoshop work by B^Dub
- * Last Updated: October 22nd, 2012
+ * Last Updated: November 6th, 2012
  * 
  * If you have any questions or concerns,
  * find me in http://turntable.fm/code_ninjas
