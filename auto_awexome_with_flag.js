@@ -91,6 +91,7 @@ $(document).ready(function() {
     lamed: false,
     arcInt: 0,
     deg: 0.0,
+    savedStickers: {},
     flag: [{"top":84,"angle":0,"sticker_id":"4f86fd3ee77989117e000002","left":50}, {"top":84,"angle":0,"sticker_id":"4f86fd3ee77989117e000002","left":118}, {"top":84,"angle":0,"sticker_id":"4f86fd3ee77989117e000002","left":185}, {"top":13,"angle":0,"sticker_id":"4f86fd3ee77989117e000002","left":50}, {"top":13,"angle":0,"sticker_id":"4f86fd3ee77989117e000002","left":118}, {"top":13,"angle":0,"sticker_id":"4f86fd3ee77989117e000002","left":185}, {"top":155,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":50}, {"top":227,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":50}, {"top":155,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":150}, {"top":227,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":150}, {"top":13,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":250}, {"top":83,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":250}, {"top":227,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":250}, {"top":155,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":250}, {"top":13,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":351}, {"top":83,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":351}, {"top":155,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":351}, {"top":227,"angle":0,"sticker_id":"4f86fe15e77989117e000005","left":351}],
     vote: function(c) {
       var f = $.sha1(window.bdub.ttObj.roomId + c + window.bdub.ttObj.currentSong._id);
@@ -100,6 +101,10 @@ $(document).ready(function() {
     },
     placeStickers: function(c) {
       window.bdub.socket({ api: 'sticker.place', placements: c, is_dj: true, roomid: window.bdub.ttObj.roomId });
+    },
+    getStickerPlacements: function(userid, callback) {
+      var rq = { api: 'sticker.get_placements', userid: userid};
+      window.bdub.socket(rq, callback);
     },
     socket: function (c, a) {
         if (c.api == "room.now") {
@@ -135,50 +140,37 @@ $(document).ready(function() {
         });
         return b.promise();
     },
-    listener: function(d) {       
-
-      if(d.command == 'newsong') {
+    listener: function(d) {
+      if(d.command == 'newsong' && d.room.metadata.current_dj != bdub.ttObj.selfId) {
+        if(!(bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && (d.room.metadata.current_dj == "503bf99baaa5cd1b5200075f" || d.room.metadata.current_dj == "5022e5c6aaa5cd20d6000009" || d.room.metadata.current_dj == "4ffd38d1aaa5cd3dc80000a3")) ) {
+          clearTimeout(window.bdub.awesomer);
+          clearInterval(window.bdub.arcInt);
+          window.bdub.lamed = false;
+          var timeAmt = Math.floor(Math.random()*window.bdub.ttObj.currentSong.metadata.length/4*1000);
+          window.bdub.botMessage.find('span').html('');
+          window.bdub.awesomer = setTimeout(function() {
+            window.bdub.vote('up');
+          }, timeAmt);
         
-        //Only do if self
-        if(d.room.metadata.current_dj === bdub.ttObj.selfId) {
-          window.bdub.speak(window.bdub.voteMsgs[Math.floor(Math.random() * window.bdub.voteMsgs.length)] );
-        }
+          if(!window.bdub.showArc) return;
 
-        //Only do if not self or (bots && B^Dub)
-        if(d.room.metadata.current_dj != bdub.ttObj.selfId) {
-          
-          //If not B^Dub is self and B^Dub's bot is DJ
-          if(!(bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && (d.room.metadata.current_dj == "503bf99baaa5cd1b5200075f" || d.room.metadata.current_dj == "5022e5c6aaa5cd20d6000009" || d.room.metadata.current_dj == "4ffd38d1aaa5cd3dc80000a3")) ) {
-            clearTimeout(window.bdub.awesomer);
+          window.bdub.deg = 0.0;
+          window.bdub.degAmt = 180 / timeAmt * 55;
+          if(window.bdub.arcInt != 0) {
             clearInterval(window.bdub.arcInt);
-            window.bdub.lamed = false;
-            var timeAmt = Math.floor(Math.random()*window.bdub.ttObj.currentSong.metadata.length/4*1000+2000); //Always wait min 2 seconds, max 1/4 song length + 2 seconds
-            window.bdub.botMessage.find('span').html(''); // Removes lame message
-            window.bdub.awesomer = setTimeout(function() {
-              window.bdub.vote('up');
-            }, timeAmt);
-          
-            if(!window.bdub.showArc) return;
-
-            window.bdub.deg = 0.0;
-            window.bdub.degAmt = 180 / timeAmt * 55;
-            if(window.bdub.arcInt != 0) {
+            window.bdub.arcInt = 0;
+          }
+          window.bdub.arcInt = setInterval(function() {
+            if(window.bdub.deg >= 180) {
               clearInterval(window.bdub.arcInt);
               window.bdub.arcInt = 0;
             }
-            window.bdub.arcInt = setInterval(function() {
-              if(window.bdub.deg >= 180) {
-                clearInterval(window.bdub.arcInt);
-                window.bdub.arcInt = 0;
-              }
-              window.bdub.setArc(window.bdub.deg, false);
-              window.bdub.deg += window.bdub.degAmt;
-            }, 50);
-          } // end if() my bots and I
-        }
+            window.bdub.setArc(window.bdub.deg, false);
+            window.bdub.deg += window.bdub.degAmt;
+          }, 50);
+        } // end if() my bots and I
       }
       else if(d.command == 'update_votes') {
-        
         $.each(d.room.metadata.votelog, function() {
           if(this[0] == window.turntable.user.id) {
             window.bdub.stop();
@@ -267,6 +259,9 @@ $(document).ready(function() {
         $('.header').append(window.bdub.flagMessage);
         window.bdub.flagMessage.find('a').click(function(msg8) {
           msg8.preventDefault();
+          window.bdub.getStickerPlacements(bdub.ttObj.selfId, function(data) {
+            window.bdub.savedStickers = data.placements;
+          });
           window.bdub.placeStickers(window.bdub.flag);
         });
 
@@ -311,6 +306,7 @@ $(document).ready(function() {
       window.bdub.arc.remove();
       window.bdub.botMessage.remove();
       window.bdub.flagMessage.remove();
+      window.bdub.placeStickers(window.bdub.savedStickers);
       double_click_check2 = true; //allow awexomer to be turned on again
     }
   });
