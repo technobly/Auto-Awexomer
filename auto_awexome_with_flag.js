@@ -44,31 +44,36 @@ function blueStyle() {
 	// Floor
 	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(4)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor2.png");
 	// DJ Table
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(5)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/dj_table2.png");
+	//$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(5)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/dj_table2.png");
+	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(5)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/invisible.png");
 	// Guage
 	//$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(6)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/gauge2.png");
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(6)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png");
+	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(6)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/invisible.png");
 	
 	// Song Board
 	$("#songboard").css("color", "cyan");
 	$("#songboard_artist").css("text-shadow", "none"); // 40px default, has a red shadow by default, removing it makes it crisp
 	$("#songboard_title").css("text-shadow", "none").css("font-size","18px"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
 	// Left Speaker
-  $("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker2.png') 0 0 no-repeat");
-  //$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker4.png') 0 0 no-repeat").css("top","120px");
-  // Right Speaker
-  $("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png') 0 0 no-repeat");
-  //$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker4.png') 0 0 no-repeat").css("top","112px");	// Vote Down Button
+  	//$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker2.png') 0 0 no-repeat");
+	$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/invisible.png') 0 0 no-repeat");
+  	//$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker4.png') 0 0 no-repeat").css("top","120px");
+  	// Right Speaker
+  	//$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png') 0 0 no-repeat");
+	$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/invisible.png') 0 0 no-repeat");
+  	//$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker4.png') 0 0 no-repeat").css("top","112px");	// Vote Down Button
 	//$("#hwdSSRfEep").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
 	// Vote Up Button
 	//$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(13)").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
 	$("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i) {
 		if($(this).css("left") === "370px") {
-			$(this).css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
+			//$(this).css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
+			$(this).css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/invisible.png') 0 0 no-repeat").css("background-position","0 -90px");
     }
 	});
 	// Meter Needle
-	$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
+	//$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
+	$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/invisible.png");
 	// Mute Button
 	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
 }
