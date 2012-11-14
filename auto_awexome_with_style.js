@@ -172,8 +172,8 @@ $(document).ready(function() {
       var context = window.bdub.arc[0].getContext('2d');
       context.clearRect(0, 0, 100, 100);
       context.beginPath();
-      context.arc(203, 162, 137, -Math.PI, degree*Math.PI/180 - Math.PI, false);
-      context.lineWidth = 6;
+      context.arc(39, 35, 32, -Math.PI, degree*Math.PI/180 - Math.PI, false);
+      context.lineWidth = 2;
       if(red)
         context.strokeStyle = 'rgb(255, 0, 0)';
       else
