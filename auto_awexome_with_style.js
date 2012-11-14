@@ -207,7 +207,6 @@ $(document).ready(function() {
       }
       window.bdub.setArc(180, true);
       setTimeout(function() {window.bdub.vote('down');}, 250);
-      alert("weeee");
     },
     init: function() {
       $('.roomView').ready(function() {
