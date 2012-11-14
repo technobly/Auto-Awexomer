@@ -45,12 +45,11 @@ function blueStyle() {
 	$("#songboard").css("color", "cyan");
 	$("#songboard-artist").css("text-shadow", "none"); // 40px default, has a red shadow by default, removing it makes it crisp
 	$("#songboard-title").css("text-shadow", "none").css("font-size","18px"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
-  $("#time-since-start").css("text-shadow", "none"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
-  $("#time-left").css("text-shadow", "none"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
-  $("#progress-bar").css("color", "cyan").css("text-shadow", "none"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
+  $("#time-since-start").css("text-shadow", "none");
+  $("#time-left").css("text-shadow", "none");
+  //$("#progress-bar").css("color", "cyan").css("text-shadow", "none");
   $("#progress-bar").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/progress-bar2.png') 0 0 repeat-x").css("background-position","0px -7px");
-  $("#progress").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/progress-bar2.png') 0 0 repeat-x").css("background-position","0px 0px").css("box-shadow","0 0 5px rgba(0,0,255,0.6)"); //.css("box-shadow","rgba(0,150,255,0.6)");
-  //#songboard-artist,#songboard-title,#time-since-start,#time-left,#song-add
+  $("#progress").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/progress-bar2.png') 0 0 repeat-x").css("background-position","0px 0px").css("box-shadow","0 0 5px rgba(0,0,255,0.6)");
 	// Vote Down Button
 	$("#lame-button").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","0px -178px");
   // Vote Up Button
@@ -203,11 +202,12 @@ $(document).ready(function() {
       if(!window.bdub.lamed) {
         window.bdub.vote('up');
         window.bdub.stop();
-        window.bdub.botMessage.find('span').html("Song lamed! Awexoming will resume next song.");
+        window.bdub.botMessage.find('span').html("Awexoming will resume next song.");
         window.bdub.lamed = true;
       }
       window.bdub.setArc(180, true);
       setTimeout(function() {window.bdub.vote('down');}, 250);
+      alert("weeee");
     },
     init: function() {
       $('.roomView').ready(function() {
@@ -220,7 +220,7 @@ $(document).ready(function() {
         var meterObj = $('#awesome-meter');
         if(meterObj.length > 0 && meterObj.css('display') != 'none') {
           var meter = meterObj.position();
-          window.bdub.arc = $('<canvas id="bdub-arc" width="75" height="30" style="overflow: hidden; position: absolute; z-index: 20000; top: ' + meter.top + 'px; left: ' + meter.left + 'px;">B\^Dub\'s Auto-Awesomer</canvas>');
+          window.bdub.arc = $('<canvas id="bdub-arc" width="75" height="30" style="overflow: hidden; position: absolute; z-index: 20000; top: ' + meter.top + 'px; left: ' + meter.left + 'px;">B\^Dub\'s Auto Awesomer</canvas>');
          window.bdub.arc.prependTo(meterObj.parent());
           window.bdub.showArc = true;
         }
@@ -230,18 +230,18 @@ $(document).ready(function() {
         window.bdub.botMessage = $('<div id="bot-message">B^Dub\'s Auto Awexomer. <span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Turn off</a></div>');
         window.bdub.botMessage.css({
           position: 'fixed',
-          color: 'white',
-          top: '-1px',
+          color: '#ADADAD',
+          top: '0px',
           zIndex: '5000',
           textAlign: 'left',
-          paddingLeft: '13px',
+          paddingLeft: '6px',
           paddingTop: '2px',
           paddingRight: '3px',
-          paddingBottom: '2px',
+          paddingBottom: '3px',
           fontSize: '10px',
           fontFace: 'Verdana'
         });
-        $('.header').append(window.bdub.botMessage);
+        $('div.info').append(window.bdub.botMessage);
         
         window.bdub.botMessage.find('a').click(function(e) {
           e.preventDefault();
@@ -250,9 +250,9 @@ $(document).ready(function() {
           window.bdub = null;
         });
 
-        var buttons = $('.roomView > div:nth-child(2) a[id]'); // 1st is Awesome button, 2nd is Lame
-        $(buttons[1]).unbind(); // cancel TT's default callback for the lame button, add in our own.
-        $(buttons[1]).bind('click', function() {
+        //var buttons = $('.roomView > div:nth-child(2) a[id]'); // 1st is Awesome button, 2nd is Lame
+        $('#lame-button').unbind(); // cancel TT's default callback for the lame button, add in our own.
+        $('#lame-button').bind('click', function() {
           window.bdub.lame();
         });
 
