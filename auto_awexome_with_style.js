@@ -4,7 +4,7 @@
  * Styling examples by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
  * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
  * Photoshop work by B^Dub
- * Last Updated: October 26th, 2012
+ * Last Updated: November 14th, 2012
  * 
  * If you have any questions or concerns,
  * find me in http://turntable.fm/bdubs
@@ -39,37 +39,26 @@ else {
 }
 	
 function blueStyle() {
-	// Wallpaper
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(3)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/wallpaper2.png");
-	// Floor
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(4)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/floor2.png");
-	// DJ Table
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(5)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/dj_table2.png");
 	// Guage
-	$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(6)").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/gauge2.png");
+	$("#awesome-meter").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-258px -102px");
 	// Song Board
 	$("#songboard").css("color", "cyan");
-	$("#songboard_artist").css("text-shadow", "none"); // 40px default, has a red shadow by default, removing it makes it crisp
-	$("#songboard_title").css("text-shadow", "none").css("font-size","18px"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
-	// Left Speaker
-	$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker2.png') 0 0 no-repeat");
-	//$("#left_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/left_speaker4.png') 0 0 no-repeat").css("top","120px");
-	// Right Speaker
-	$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker2.png') 0 0 no-repeat");
-	//$("#right_speaker").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/right_speaker4.png') 0 0 no-repeat").css("top","112px");
+	$("#songboard-artist").css("text-shadow", "none"); // 40px default, has a red shadow by default, removing it makes it crisp
+	$("#songboard-title").css("text-shadow", "none").css("font-size","18px"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
+  $("#time-since-start").css("text-shadow", "none"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
+  $("#time-left").css("text-shadow", "none"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
+  $("#progress-bar").css("color", "cyan").css("text-shadow", "none"); // 15px default, has a red shadow by default, removing it makes it better... still hard to read because it's small font size
+  $("#progress-bar").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/progress-bar2.png') 0 0 repeat-x").css("background-position","0px -7px");
+  $("#progress").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/progress-bar2.png') 0 0 repeat-x").css("background-position","0px 0px").css("box-shadow","0 0 5px rgba(0,0,255,0.6)"); //.css("box-shadow","rgba(0,150,255,0.6)");
+  //#songboard-artist,#songboard-title,#time-since-start,#time-left,#song-add
 	// Vote Down Button
-	//$("#hwdSSRfEep").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat");
-	// Vote Up Button
-	//$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(13)").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
-  //$("#turntable").children(":first-child").children(":nth-child(2)").children(":nth-child(1)").children(":nth-child(4)").children(":nth-child(4)").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png');
-  $("#turntable").children(":first-child").children(":nth-child(2)").children().each(function(i) {
-		if($(this).css("left") == "370px")
-			$(this).css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/vote_btns2.png') 0 0 no-repeat").css("background-position","0 -90px");
-	});
-	// Meter Needle
-	$("#meterNeedle").children(":first-child").children(":first-child").attr("src", "https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/needle2.png");
-	// Mute Button
-	$("a.mute_btn").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/mute_btn2.png') 0 0 no-repeat");
+	$("#lame-button").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","0px -178px");
+  // Vote Up Button
+  $("#awesome-button").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-220px -178px");
+  // Meter Needle
+	//$("#awesome-needle.green").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-338px -146px");
+  //$("#awesome-needle.red").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-338px -125px");
+  //$("#awesome-needle:after").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-335px -125px");
 }
 
 if(typeof double_click_check2 === "undefined") {
@@ -141,33 +130,33 @@ $(document).ready(function() {
     },
     listener: function(d) {
       if(d.command == 'newsong' && d.room.metadata.current_dj != bdub.ttObj.selfId) {
-      	if(!(bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && (d.room.metadata.current_dj == "503bf99baaa5cd1b5200075f" || d.room.metadata.current_dj == "5022e5c6aaa5cd20d6000009" || d.room.metadata.current_dj == "4ffd38d1aaa5cd3dc80000a3")) ) {
-        	clearTimeout(window.bdub.awesomer);
-        	clearInterval(window.bdub.arcInt);
-        	window.bdub.lamed = false;
-        	var timeAmt = Math.floor(Math.random()*window.bdub.ttObj.currentSong.metadata.length/4*1000);
-        	window.bdub.botMessage.find('span').html('');
-        	window.bdub.awesomer = setTimeout(function() {
-	          window.bdub.vote('up');
-        	}, timeAmt);
+        if(!(bdub.ttObj.selfId == "4fde9255aaa5cd1e680004f8" && (d.room.metadata.current_dj == "503bf99baaa5cd1b5200075f" || d.room.metadata.current_dj == "5022e5c6aaa5cd20d6000009" || d.room.metadata.current_dj == "4ffd38d1aaa5cd3dc80000a3")) ) {
+          clearTimeout(window.bdub.awesomer);
+          clearInterval(window.bdub.arcInt);
+          window.bdub.lamed = false;
+          var timeAmt = Math.floor(Math.random()*window.bdub.ttObj.currentSong.metadata.length/4*1000);
+          window.bdub.botMessage.find('span').html('');
+          window.bdub.awesomer = setTimeout(function() {
+            window.bdub.vote('up');
+          }, timeAmt);
         
-        	if(!window.bdub.showArc) return;
+          if(!window.bdub.showArc) return;
 
-        	window.bdub.deg = 0.0;
-        	window.bdub.degAmt = 180 / timeAmt * 55;
-        	if(window.bdub.arcInt != 0) {
-	          clearInterval(window.bdub.arcInt);
-          	window.bdub.arcInt = 0;
-        	}
-        	window.bdub.arcInt = setInterval(function() {
-	          if(window.bdub.deg >= 180) {
-            	clearInterval(window.bdub.arcInt);
-            	window.bdub.arcInt = 0;
-          	}
-          	window.bdub.setArc(window.bdub.deg, false);
-          	window.bdub.deg += window.bdub.degAmt;
-        	}, 50);
-      	} // end if() my bots and I
+          window.bdub.deg = 0.0;
+          window.bdub.degAmt = 180 / timeAmt * 55;
+          if(window.bdub.arcInt != 0) {
+            clearInterval(window.bdub.arcInt);
+            window.bdub.arcInt = 0;
+          }
+          window.bdub.arcInt = setInterval(function() {
+            if(window.bdub.deg >= 180) {
+              clearInterval(window.bdub.arcInt);
+              window.bdub.arcInt = 0;
+            }
+            window.bdub.setArc(window.bdub.deg, false);
+            window.bdub.deg += window.bdub.degAmt;
+          }, 50);
+        } // end if() my bots and I
       }
       else if(d.command == 'update_votes') {
         $.each(d.room.metadata.votelog, function() {
@@ -181,7 +170,7 @@ $(document).ready(function() {
     setArc: function(degree, red) {
       if(!window.bdub.showArc) return;
       var context = window.bdub.arc[0].getContext('2d');
-      context.clearRect(0, 0, 1000, 500);
+      context.clearRect(0, 0, 100, 100);
       context.beginPath();
       context.arc(203, 162, 137, -Math.PI, degree*Math.PI/180 - Math.PI, false);
       context.lineWidth = 6;
@@ -222,20 +211,17 @@ $(document).ready(function() {
     },
     init: function() {
       $('.roomView').ready(function() {
-        for(var prop in window.turntable) {
-          if(window.turntable[prop] != undefined && window.turntable[prop].hasOwnProperty('currentDj'))
-            window.bdub.ttObj = window.turntable[prop];
-        }
+        window.bdub.ttObj = window.turntable.buddyList.room;
         if(window.bdub.ttObj === null) {
           alert('Could not find turntable.fm objects. You should refresh your page and try again.');
           return;
         }
         window.bdub.room = window.location.pathname;
-        var meterObj = $('#meterGauge');
+        var meterObj = $('#awesome-meter');
         if(meterObj.length > 0 && meterObj.css('display') != 'none') {
-          var meter = $('#meterGauge').position();
-          window.bdub.arc = $('<canvas id="bdub-arc" width="406" height="158" style="overflow: hidden; position: absolute; z-index: 20000; top: ' + meter.top + 'px; left: ' + meter.left + 'px;">bdub\'s AutoAwesome</canvas>');
-          $($('.roomView > div')[1]).prepend(window.bdub.arc);
+          var meter = meterObj.position();
+          window.bdub.arc = $('<canvas id="bdub-arc" width="75" height="30" style="overflow: hidden; position: absolute; z-index: 20000; top: ' + meter.top + 'px; left: ' + meter.left + 'px;">B\^Dub\'s Auto-Awesomer</canvas>');
+         window.bdub.arc.prependTo(meterObj.parent());
           window.bdub.showArc = true;
         }
         else
