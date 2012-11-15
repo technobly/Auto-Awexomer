@@ -176,14 +176,14 @@ $(document).ready(function() {
       if(red)
         context.strokeStyle = 'rgb(255, 0, 0)';
       else
-        context.strokeStyle = 'rgb(0, 130, 200)';
+        context.strokeStyle = 'rgb(0, 70, 255)';
       context.shadowOffsetX = 0;
       context.shadowOffsetY = 0;
       context.shadowBlur = 20;
       if(red)
         context.shadowColor = 'rgba(255, 0, 0, 1)';
       else
-        context.shadowColor = 'rgba(0, 150, 255, 1)';
+        context.shadowColor = 'rgba(0, 70, 255, 1)';
       context.stroke();
     },
     room: '',
