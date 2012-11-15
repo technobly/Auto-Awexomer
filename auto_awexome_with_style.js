@@ -59,7 +59,7 @@ function blueStyle() {
 	// Vote Down Button
 	$("#lame-button").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","0px -178px");
   // Vote Up Button
-  $("#awesome-button").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-220px -178px");
+  $("#awesome-button").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-220px -178px"); //.css("position","absolute").css("top","6px").css("right","9px").css("width","44px").css("height","75px");
   // Meter Needle
 	//$("#awesome-needle.green").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-338px -146px");
   //$("#awesome-needle.red").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-338px -125px");
@@ -143,12 +143,15 @@ $(document).ready(function() {
           var timeAmt = Math.floor(Math.random()*window.bdub.ttObj.currentSong.metadata.length/4*1000);
           window.bdub.botMessage.find('span').html('');
           window.bdub.awesomer = setTimeout(function() {
-            window.bdub.vote('up');
+            //window.bdub.vote('up');
+            window.bdub.awesome();
           }, timeAmt);
         
           if(!window.bdub.showArc) return;
 
           window.bdub.deg = 0.0;
+          $("#awesome-button").css("background-position","-132px -178px");
+          $("#lame-button").css("background-position","0px -178px");
           window.bdub.degAmt = 180 / timeAmt * 55;
           if(window.bdub.arcInt != 0) {
             clearInterval(window.bdub.arcInt);
@@ -169,6 +172,14 @@ $(document).ready(function() {
           if(this[0] == window.turntable.user.id) {
             window.bdub.stop();
             window.bdub.setArc(180, this[1] == "down");
+            if(this[1] == "down") {
+              $("#lame-button").css("background-position","-88px -178px");
+              $("#awesome-button").css("background-position","-132px -178px");
+            }
+            else {
+              $("#lame-button").css("background-position","0px -178px");
+              $("#awesome-button").css("background-position","-220px -178px");
+            }
           }
         });     
       }
@@ -204,6 +215,8 @@ $(document).ready(function() {
       window.bdub.vote('up');
       window.bdub.stop();
       window.bdub.setArc(180, false);
+      $("#lame-button").css("background-position","0px -178px");
+      $("#awesome-button").css("background-position","-220px -178px");
     },
     lame: function() {
       if(!window.bdub.lamed) {
@@ -214,6 +227,8 @@ $(document).ready(function() {
       }
       window.bdub.setArc(180, true);
       setTimeout(function() {window.bdub.vote('down');}, 250);
+      $("#awesome-button").css("background-position","-132px -178px");
+      $("#lame-button").css("background-position","-88px -178px");
     },
     init: function() {
       $('.roomView').ready(function() {
@@ -295,6 +310,9 @@ $(document).ready(function() {
       window.bdub.stop();
       window.bdub.arc.remove();
       window.bdub.botMessage.remove();
+      $("#awesome-button").css("background-position","-132px -178px");
+      $("#lame-button").css("background-position","0px -178px");
+    
       double_click_check2 = true; //allow awexomer to be turned on again
     }
   });
