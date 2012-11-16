@@ -187,10 +187,10 @@ $(document).ready(function() {
     },
     setArc: function(degree, red) {
       if(!window.bdub.showArc) return;
-      var context = window.bdub.arc[0].getContext('2d');
+      var context = window.bdub.arc[0].getContext('2d'), $arc = $(window.bdub.arc);
       context.clearRect(0, 0, 100, 100);
       context.beginPath();
-      context.arc(39, 35, 32, -Math.PI, degree*Math.PI/180 - Math.PI, false);
+      context.arc($arc.width()/2, $arc.height()+5, $arc.height()+2, -Math.PI, degree*Math.PI/180 - Math.PI, false);
       context.lineWidth = 2;
       if(red)
         context.strokeStyle = 'rgb(255, 0, 0)';
@@ -242,7 +242,7 @@ $(document).ready(function() {
         var meterObj = $('#awesome-meter');
         if(meterObj.length > 0 && meterObj.css('display') != 'none') {
           var meter = meterObj.position();
-          window.bdub.arc = $('<canvas id="bdub-arc" width="75" height="30" style="overflow: hidden; position: absolute; z-index: 20000; top: ' + meter.top + 'px; left: ' + meter.left + 'px;">B\^Dub\'s Auto Awesomer</canvas>');
+          window.bdub.arc = $('<canvas id="bdub-arc" width="' + meterObj.width() + '" height="' + parseInt(meterObj.height()*0.39) + '" style="overflow: hidden; position: absolute; z-index: 20000; top: ' + meter.top + 'px; left: ' + meter.left + 'px;">B\^Dub\'s Auto Awesomer</canvas>');
          window.bdub.arc.prependTo(meterObj.parent());
           window.bdub.showArc = true;
         }
@@ -292,7 +292,7 @@ $(document).ready(function() {
             console.log('New Room found, reinitializing...');
             window.bdub.destruct();
             if(window.bdub.showArc) {
-              var meterObj = $('#meterGauge');
+              var meterObj = $('#awesome-meter');
               var check = setInterval(function() {
                 if(meterObj.length > 0 && meterObj.css('display') != 'none') {
                   window.bdub.init();
