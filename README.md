@@ -19,6 +19,13 @@ In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbyt
 
 ## Changelog
 
+### November 16th, 2012
+* Fixed bug not allowing someone to vote in a big room if they were not in the main section.
+* Updated the code for the new Turntable.fm interface.
+* Some of the API calls and variables were changed slightly. (Thanks Izzmo!)
+* Moved the Awesome Arc to the new location of the interface (now smaller as well).
+* Less things to make blue, but it's pretty stinkin' blue :)
+
 ### October 26th, 2012
 * Updated to work with TT's Halloween Theme, but keeping everything blue ^_^
 
