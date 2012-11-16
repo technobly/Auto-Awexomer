@@ -94,6 +94,7 @@ $(document).ready(function() {
       window.bdub.socket({
           api: "room.vote",
           roomid: window.bdub.ttObj.roomId,
+          section: window.bdub.ttObj.section,
           val: c,
           vh: f,
           th: d,
