@@ -1,5 +1,5 @@
 #B^Dub's Turntable.fm Auto Awexomer
-![B^Dub's Auto Awexomer](http://i.imgur.com/3AzI3.png)
+![B^Dub's Auto Awexomer](http://i.imgur.com/2cMoB.png)
 
 This script allows you to enjoy turntable.fm music without worrying about voting for every song, which you should be doing! Instead, forget the hassle and turn this on to have the songs you listen to get voted awexome automatically! If you don't like a song, simply go back to the turntable.fm room tab and click lame, and the counter will not resume until the next song!
             
@@ -14,8 +14,6 @@ This script allows you to enjoy turntable.fm music without worrying about voting
 ## Download
 
 In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbytt.github.com/Auto-Awexomer/ for instructions on how to add it to your bookmarks bar and get it up and running.
-
-![Blue Style](http://i.imgur.com/FOD0O.png)
 
 ## Changelog
 
