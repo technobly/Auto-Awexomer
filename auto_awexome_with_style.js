@@ -58,13 +58,20 @@ function blueStyle() {
   $("div.btn.rdio").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-135px -253px");
 	// Vote Down Button
 	$("#lame-button").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","0px -178px");
+  //$("#lame-button:hover").css("background-position","-44px -178px");
   // Vote Up Button
   $("#awesome-button").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-220px -178px"); //.css("position","absolute").css("top","6px").css("right","9px").css("width","44px").css("height","75px");
+  //$("#awesome-button:hover").css("background-position","-176px -178px");
   // Meter Needle
 	//$("#awesome-needle.green").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-338px -146px");
   //$("#awesome-needle.red").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-338px -125px");
   //$("#awesome-needle:after").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-335px -125px");
-
+  var turkey1 = $('<div id="turkey1"><img src="https://s3.amazonaws.com/static.turntable.fm/roommanager_assets/avatars/353/fullfront.png"></div>');
+  turkey1.css({ position: 'absolute', top: '70px', left: '-370px'});
+  $("div.crowd").append(turkey1);
+  var turkey2 = $('<div id="turkey2"><img src="https://s3.amazonaws.com/static.turntable.fm/roommanager_assets/avatars/352/fullfront.png"></div>');
+  turkey2.css({ position: 'absolute', top: '53px', left: '-507px'});
+  $("div.crowd").append(turkey2);
 }
 
 if(typeof double_click_check2 === "undefined") {
