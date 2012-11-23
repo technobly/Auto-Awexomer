@@ -66,12 +66,14 @@ function blueStyle() {
 	//$("#awesome-needle.green").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-338px -146px");
   //$("#awesome-needle.red").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-338px -125px");
   //$("#awesome-needle:after").css("background", "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png') 0 0 no-repeat").css("background-position","-335px -125px");
-  var turkey1 = $('<div id="turkey1"><img src="https://s3.amazonaws.com/static.turntable.fm/roommanager_assets/avatars/353/fullfront.png"></div>');
-  turkey1.css({ position: 'absolute', top: '70px', left: '-370px'});
-  $("div.crowd").append(turkey1);
-  var turkey2 = $('<div id="turkey2"><img src="https://s3.amazonaws.com/static.turntable.fm/roommanager_assets/avatars/352/fullfront.png"></div>');
-  turkey2.css({ position: 'absolute', top: '53px', left: '-507px'});
-  $("div.crowd").append(turkey2);
+  
+  //THANKSGIVING
+  //var turkey1 = $('<div id="turkey1"><img src="https://s3.amazonaws.com/static.turntable.fm/roommanager_assets/avatars/353/fullfront.png"></div>');
+  //turkey1.css({ position: 'absolute', top: '70px', left: '-370px'});
+  //$("div.crowd").append(turkey1);
+  //var turkey2 = $('<div id="turkey2"><img src="https://s3.amazonaws.com/static.turntable.fm/roommanager_assets/avatars/352/fullfront.png"></div>');
+  //turkey2.css({ position: 'absolute', top: '53px', left: '-507px'});
+  //$("div.crowd").append(turkey2);
 }
 
 if(typeof double_click_check2 === "undefined") {
