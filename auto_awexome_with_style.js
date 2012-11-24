@@ -181,8 +181,8 @@ $(document).ready(function() {
         $.each(d.room.metadata.votelog, function() {
           if(this[0] == window.turntable.user.id) {
             window.bdub.stop();
-            window.bdub.setArc(180, this[1] == "down");
-            if(this[1] == "down") {
+            window.bdub.setArc(180, 'down' === this[1]);
+            if('down' === this[1]) {
               $("#lame-button").css("background-position","-88px -178px");
               $("#awesome-button").css("background-position","-132px -178px");
             }
@@ -293,7 +293,7 @@ $(document).ready(function() {
         // Timer for resetting Turntable's AFK Timers
         // Runs every 60 seconds
         window.bdub.botResetAFKTimer = setInterval(function() {
-          $($('form input:last')[0]).keydown();
+          $(window).focus();
         }, 60000);
 
         window.bdub.watcher = setInterval(function() {
