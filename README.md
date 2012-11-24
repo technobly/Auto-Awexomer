@@ -17,6 +17,9 @@ In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbyt
 
 ## Changelog
 
+### November 24th, 2012
+* AFK Timer fixed
+
 ### November 16th, 2012
 * Fixed bug not allowing someone to vote in a big room if they were not in the main section.
 * Updated the code for the new Turntable.fm interface.
