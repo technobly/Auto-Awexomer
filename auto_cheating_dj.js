@@ -137,8 +137,18 @@ $(document).ready(function() {
 
         turntable.addEventListener("message", window.cheater.listener);
 
-        window.cheater.autoDJMessage =       $('<div id="autodj-message">Cheater!!!: <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">|OFF|</a></div>');
-        window.cheater.autoDJMessage.css({   position: 'absolute', color: '#ADADAD', top: '44px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
+        window.cheater.offMessage =          $('<div id="off-message"><span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Ch</a></div>');
+        window.cheater.autoDJMessage =       $('<div id="autodj-message">eater!!!: <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">|OFF|</a></div>');
+        window.cheater.offMessage.css({      position: 'absolute', color: '#ADADAD', top: '44px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
+        window.cheater.autoDJMessage.css({   position: 'absolute', color: '#ADADAD', top: '44px', left: '13px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
+        
+        $('div.info').append(window.cheater.offMessage);
+        window.cheater.offMessage.find('a').click(function(e) {
+          e.preventDefault();
+          window.cheater.destruct();
+          window.turntable.removeEventListener("message", window.cheater.listener);
+          window.cheater = null;
+        });
 
         $('div.info').append(window.cheater.autoDJMessage);
         window.cheater.autoDJMessage.find('a').click(function(e) {
@@ -164,6 +174,7 @@ $(document).ready(function() {
     },
     destruct: function() {
       window.cheater.autoDJMessage.remove();
+      window.cheater.offMessage.remove();
       double_click_check3 = true; //allow awexomer to be turned on again
     }
   });
