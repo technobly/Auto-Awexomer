@@ -97,7 +97,7 @@ $(document).ready(function() {
       //                                                   .d88P"  
       if(d.command === 'rem_dj') {
         if(d.user[0].userid === window.turntable.user.id) { // If I just came off the deck...
-          window.bdub.isDj = false; // Not DJing Anymore
+          window.cheater.isDj = false; // Not DJing Anymore
         }
         if(!window.cheater.isDj) { // If not a DJ already
           if(window.cheater.autoDJ > 0) { // Only try to get up if autoDJ is set
