@@ -100,7 +100,7 @@ $(document).ready(function() {
       var f = $.sha1(window.bdub.ttObj.roomId + vote + window.bdub.ttObj.currentSong._id);
       var d = $.sha1(Math.random() + "");
       var e = $.sha1(Math.random() + "");
-      console.log("[SECTION]: "+window.bdub.ttObj.section);
+      console.log("[SECTION]: " + window.bdub.ttObj.section);
       if(window.bdub.ttObj.section == undefined) { // Don't use the section
         console.log("[VOTE WITHOUT SECTION]");
         window.bdub.socket({
@@ -112,9 +112,9 @@ $(document).ready(function() {
           ph: e
         }, function (g) {
             if (g.success) {
-              console.log("[VOTE SUCCESS]: " + g);
+              console.log("[VOTE SUCCESS]: " + JSON.stringify(g,null,' '));
             }
-            else console.log("[VOTE FAIL]: " + g);
+            else console.log("[VOTE FAIL]: " + JSON.stringify(g,null,' '));
             if (callback) {
                 callback(g);
             }
@@ -132,9 +132,9 @@ $(document).ready(function() {
           ph: e
         }, function (g) {
             if (g.success) {
-              console.log("[VOTE SUCCESS]: " + g);
+              console.log("[VOTE SUCCESS]: " + JSON.stringify(g,null,' '));
             }
-            else console.log("[VOTE FAIL]: " + g);
+            else console.log("[VOTE FAIL]: " + JSON.stringify(g,null,' '));
             if (callback) {
                 callback(g);
             }
