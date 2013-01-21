@@ -100,7 +100,19 @@ $(document).ready(function() {
       var f = $.sha1(window.bdub.ttObj.roomId + c + window.bdub.ttObj.currentSong._id);
       var d = $.sha1(Math.random() + "");
       var e = $.sha1(Math.random() + "");
-      window.bdub.socket({
+      if(window.bdub.ttObj.section === undefined) { // Don't use the section
+        window.bdub.socket({
+          api: "room.vote",
+          roomid: window.bdub.ttObj.roomId,
+          //section: window.bdub.ttObj.section,
+          val: c,
+          vh: f,
+          th: d,
+          ph: e
+        });
+      }
+      else { // Use the section if defined
+        window.bdub.socket({
           api: "room.vote",
           roomid: window.bdub.ttObj.roomId,
           section: window.bdub.ttObj.section,
@@ -108,7 +120,8 @@ $(document).ready(function() {
           vh: f,
           th: d,
           ph: e
-      });
+        });
+      }
     },
     socketcrap: function (c, a) {
         if (c.api == "room.now") {
