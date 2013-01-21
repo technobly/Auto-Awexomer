@@ -111,12 +111,12 @@ $(document).ready(function() {
           th: d,
           ph: e
         }, function (g) {
-            if (!g.success) {
-              console.log("[VOTE SUCCESS]");
+            if (g.success) {
+              console.log("[VOTE SUCCESS]: " + g);
             }
             else console.log("[VOTE FAIL]: " + g);
-            if (f) {
-                f(g);
+            if (callback) {
+                callback(g);
             }
         });
       }
@@ -126,17 +126,17 @@ $(document).ready(function() {
           api: "room.vote",
           roomid: window.bdub.ttObj.roomId,
           section: window.bdub.ttObj.section,
-          val: c,
+          val: vote,
           vh: f,
           th: d,
           ph: e
         }, function (g) {
-            if (!g.success) {
-              console.log("[VOTE SUCCESS]");
+            if (g.success) {
+              console.log("[VOTE SUCCESS]: " + g);
             }
             else console.log("[VOTE FAIL]: " + g);
-            if (f) {
-                f(g);
+            if (callback) {
+                callback(g);
             }
         });
       }
