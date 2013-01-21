@@ -110,7 +110,7 @@ $(document).ready(function() {
           ph: e
       });
     },
-    socket: function (c, a) {
+    socketcrap: function (c, a) {
         if (c.api == "room.now") {
             return;
         }
@@ -143,6 +143,33 @@ $(document).ready(function() {
             });
         });
         return b.promise();
+    },
+    socket: function (data, callback) { // Borrowed from Turntable X :) 
+      var msg, defer = $.Deferred();
+      if(data.api == "room.now") {
+        defer.resolved();
+        callback();
+        return defer.promise();
+      }
+      data.msgid = turntable.messageId;
+      turntable.messageId += 1;
+      data.clientid = turntable.clientId;
+      if(turntable.user.id && !data.userid) {
+        data.userid = turntable.user.id;
+        data.userauth = turntable.user.auth;
+      }
+      msg = JSON.stringify(data);
+      turntable.whenSocketConnected(function() {
+        turntable.socket.send(msg);
+        turntable.socketKeepAlive(true);
+        turntable.pendingCalls.push({
+          msgid: data.msgid,
+          handler: callback,
+          deferred: defer,
+          time: util.now()
+        });
+      });
+      return defer.promise();
     },
     listener: function(d) {
       if(d.command == 'newsong' && d.room.metadata.current_dj != window.turntable.user.id) {
