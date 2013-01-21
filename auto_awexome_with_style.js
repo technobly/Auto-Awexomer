@@ -96,8 +96,8 @@ $(document).ready(function() {
     lamed: false,
     arcInt: 0,
     deg: 0.0,
-    vote: function(c) {
-      var f = $.sha1(window.bdub.ttObj.roomId + c + window.bdub.ttObj.currentSong._id);
+    vote: function(vote, callback) {
+      var f = $.sha1(window.bdub.ttObj.roomId + vote + window.bdub.ttObj.currentSong._id);
       var d = $.sha1(Math.random() + "");
       var e = $.sha1(Math.random() + "");
       console.log("[SECTION]: "+window.bdub.ttObj.section);
@@ -106,10 +106,18 @@ $(document).ready(function() {
         window.bdub.socket({
           api: "room.vote",
           roomid: window.bdub.ttObj.roomId,
-          val: c,
+          val: vote,
           vh: f,
           th: d,
           ph: e
+        }, function (g) {
+            if (!g.success) {
+              console.log("[VOTE SUCCESS]");
+            }
+            else console.log("[VOTE FAIL]: " + g);
+            if (f) {
+                f(g);
+            }
         });
       }
       else { // Use the section if defined
@@ -122,6 +130,14 @@ $(document).ready(function() {
           vh: f,
           th: d,
           ph: e
+        }, function (g) {
+            if (!g.success) {
+              console.log("[VOTE SUCCESS]");
+            }
+            else console.log("[VOTE FAIL]: " + g);
+            if (f) {
+                f(g);
+            }
         });
       }
     },
