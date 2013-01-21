@@ -292,7 +292,7 @@ $(document).ready(function() {
         });
 
         turntable.addEventListener("message", window.bdub.listener);
-        window.bdub.awesome(); // automatically awesome the song upon load
+        if(window.bdub.ttObj.roomData.metadata.current_dj != window.turntable.user.id) window.bdub.awesome(); // automatically awesome the song upon load, unless I'm dj'ing
 
         // Timer for resetting Turntable's AFK Timers
         // Runs every 60 seconds
