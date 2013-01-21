@@ -4,7 +4,7 @@
  * Styling examples by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
  * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
  * Photoshop work by B^Dub
- * Last Updated: November 24th, 2012
+ * Last Updated: January 21st, 2013
  * 
  * If you have any questions or concerns,
  * find me in http://turntable.fm/bdubs
@@ -100,80 +100,26 @@ $(document).ready(function() {
       var f = $.sha1(window.bdub.ttObj.roomId + vote + window.bdub.ttObj.currentSong._id);
       var d = $.sha1(Math.random() + "");
       var e = $.sha1(Math.random() + "");
-      console.log("[SECTION]: " + window.bdub.ttObj.section);
-      if(window.bdub.ttObj.section == undefined) { // Don't use the section
-        console.log("[VOTE WITHOUT SECTION]");
-        window.bdub.socket({
-          api: "room.vote",
-          roomid: window.bdub.ttObj.roomId,
-          val: vote,
-          vh: f,
-          th: d,
-          ph: e
-        }, function (g) {
-            if (g.success) {
-              console.log("[VOTE SUCCESS]: " + JSON.stringify(g,null,' '));
-            }
-            else console.log("[VOTE FAIL]: " + JSON.stringify(g,null,' '));
-            if (callback) {
-                callback(g);
-            }
-        });
-      }
-      else { // Use the section if defined
-        console.log("[VOTE WITH SECTION]");
-        window.bdub.socket({
-          api: "room.vote",
-          roomid: window.bdub.ttObj.roomId,
-          section: window.bdub.ttObj.section,
-          val: vote,
-          vh: f,
-          th: d,
-          ph: e
-        }, function (g) {
-            if (g.success) {
-              console.log("[VOTE SUCCESS]: " + JSON.stringify(g,null,' '));
-            }
-            else console.log("[VOTE FAIL]: " + JSON.stringify(g,null,' '));
-            if (callback) {
-                callback(g);
-            }
-        });
-      }
-    },
-    socketcrap: function (c, a) {
-        if (c.api == "room.now") {
-            return;
-        }
-        c.msgid = turntable.messageId;
-        turntable.messageId += 1;
-        c.clientid = turntable.clientId;
-        if (turntable.user.id && !c.userid) {
-            c.userid = turntable.user.id;
-            c.userauth = turntable.user.auth;
-        }
-        var d = JSON.stringify(c);
-        if (turntable.socketVerbose) {
-            LOG(util.nowStr() + " Preparing message " + d);
-        }
-        var b = $.Deferred();
-        turntable.whenSocketConnected(function () {
-            if (turntable.socketVerbose) {
-                LOG(util.nowStr() + " Sending message " + c.msgid + " to " + turntable.socket.host);
-            }
-            if (turntable.socket.transport.type == "websocket") {
-                turntable.socketLog(turntable.socket.transport.sockets[0].id + ":<" + c.msgid);
-            }
-            turntable.socket.send(d);
-            turntable.socketKeepAlive(true);
-            turntable.pendingCalls.push({
-                msgid: c.msgid,
-                handler: a,
-                deferred: b,
-                time: util.now()
-            });
-        });
-        return b.promise();
+      window.bdub.socket({
+        api: "room.vote",
+        roomid: window.bdub.ttObj.roomId,
+        section: window.bdub.ttObj.section,
+        val: vote,
+        vh: f,
+        th: d,
+        ph: e
+      }, function (g) {
+          if (g.success) {
+            //console.log("[VOTE SUCCESS]: " + JSON.stringify(g,null,' '));
+          }
+          else {
+            alert("I'm sorry but the Awexomer script has an error and you're not bopping.  Please refresh the TAB and reload ;-)");
+            console.log("[VOTE FAIL]: " + JSON.stringify(g,null,' '));
+          }
+          if (callback) {
+              callback(g);
+          }
+      });
     },
     socket: function (data, callback) { // Borrowed from Turntable X :) 
       var msg, defer = $.Deferred();
