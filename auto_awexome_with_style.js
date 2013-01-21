@@ -112,7 +112,7 @@ $(document).ready(function() {
           if (g.success) {
             //console.log("[VOTE SUCCESS]: " + JSON.stringify(g,null,' '));
           }
-          else {
+          else if (g.err === "Cannot vote on your song.") {
             alert("I'm sorry but the Awexomer script has an error and you're not bopping.  Please refresh the TAB and reload ;-)");
             console.log("[VOTE FAIL]: " + JSON.stringify(g,null,' '));
           }
