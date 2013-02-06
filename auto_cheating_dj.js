@@ -29,6 +29,8 @@ $(document).ready(function() {
     autoDJ: 0,
     autoDJCnt: 1,
     isDj: false,
+    playlist: {}, //Playlist container
+    saved_playlist: {}, //Playlist container
     socket: function (c, a) {
         if (c.api == "room.now") {
             return;
@@ -83,6 +85,53 @@ $(document).ready(function() {
       var i = sArray.length;
       while (i--) { if (sArray[i] == sElement) { return true; } }
       return false;
+    },
+    playlistAll: function () {
+      var playlistName = 'default'
+        , callback     = null;
+      switch (arguments.length) {
+        case 1:
+            if      (typeof arguments[0] == 'string'  ) { playlistName = arguments[0]; }
+            else if (typeof arguments[0] == 'function') { callback     = arguments[0]; }
+            break;
+        case 2:
+            playlistName = arguments[0];
+            callback     = arguments[1];
+            break;
+      }
+      var rq = { api: 'playlist.all', playlist_name: playlistName };
+      window.cheater.socket(rq, callback);
+    },
+    playlistReorder: function () {
+      var playlistName = 'default'
+        , indexFrom    = 0
+        , indexTo      = 0
+        , callback     = null;
+      switch (arguments.length) {
+        case 2:
+            indexFrom = arguments[0];
+            indexTo   = arguments[1];
+            break;
+        case 3:
+            if (typeof arguments[0] == 'string' && typeof arguments[1] == 'number' && typeof arguments[2] == 'number') {
+              playlistName = arguments[0];
+              indexFrom    = arguments[1];
+              indexTo      = arguments[2];
+            } else if (typeof arguments[0] == 'number' && typeof arguments[1] == 'number' && typeof arguments[2] == 'function') {
+              indexFrom    = arguments[0];
+              indexTo      = arguments[1];
+              callback     = arguments[2];
+            }
+            break;
+        case 4:
+            playlistName = arguments[0];
+            indexFrom    = arguments[1];
+            indexTo      = arguments[2];
+            callback     = arguments[3];
+            break;
+      }
+      var rq = { api: 'playlist.reorder', playlist_name: playlistName, index_from: indexFrom, index_to: indexTo };
+      window.cheater.socket(rq, callback);
     },
     listener: function(d) {
       // 8888888b.  8888888888 888b     d888      8888888b. 888888 
@@ -141,6 +190,9 @@ $(document).ready(function() {
         window.cheater.autoDJMessage =       $('<div id="autodj-message">eater!!!: <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">|OFF|</a></div>');
         window.cheater.offMessage.css({      position: 'absolute', color: '#ADADAD', top: '44px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
         window.cheater.autoDJMessage.css({   position: 'absolute', color: '#ADADAD', top: '44px', left: '13px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
+        window.cheater.shuffleMessage =      $('<div id="shuffle-message"><a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">|shuffle|</a></div>');
+        window.cheater.shuffleMessage.css({  position: 'absolute', color: '#ADADAD', top: '44px', left: '100px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'}); 
+        
         
         $('div.info').append(window.cheater.offMessage);
         window.cheater.offMessage.find('a').click(function(e) {
@@ -170,11 +222,67 @@ $(document).ready(function() {
           window.cheater.isDj = window.cheater.contains(data.room.metadata.djs,window.turntable.user.id);
         });
 
+        $('div.info').append(window.cheater.shuffleMessage);
+        window.cheater.shuffleMessage.find('a').click(function(msg8) {
+          msg8.preventDefault();
+          window.cheater.shuffleMessage.find('a').css("color","red").html("|WAIT|");
+          window.cheater.playlist = {};
+          window.cheater.saved_playlist = {};
+          var checkShuffle = null;
+          var checkShuffle = prompt("Are you sure you want to shuffle your tracks? Please type \"yes\" and click OK. \n\nClick Cancel if you want to back up your songs to the Chrome console first.  Go in there and copy them into a new text file.");
+          
+          if(checkShuffle && checkShuffle.match(/^yes$/i)) console.log("You typed yes");
+          else {
+            window.cheater.shuffleMessage.find('a').css("color","yellow").html("|shuffle|");
+            window.cheater.playlistAll(function (data) {
+              if(data.success) {
+                console.log("[ SONG BACKUP START - START COPY HERE --> ]");
+                for(var i = 0; i < data.list.length; i++) {
+                  window.cheater.saved_playlist[i] = data.list[i]._id;
+                }
+                console.log(JSON.stringify(window.cheater.saved_playlist));
+                console.log("[ <-- END COPY HERE - SONG BACKUP END ]");
+                alert(data.list.length+" SONGS BACKED UP! \n\nRight click and open the Inspect Element tool, then click Console tab, and copy song data.");
+              }
+              else
+                alert("ERROR: Your songs are not backed up!!!");
+            });
+            return;
+          }
+          
+          window.cheater.playlistAll(function (data) {
+            if(data.success) {              
+              var songCount = 0;
+              var songsLeft = 0;
+              var new_rand_loc = 0; 
+              var shuffleInt = setInterval(function () {
+                if (songCount > data.list.length) {
+                  clearInterval(shuffleInt);
+                  window.cheater.shuffleMessage.find('a').css("color","yellow").html("|shuffle|");
+                  alert("SONGS SHUFFLED!\n\nDon't forget to refresh the page to update the view of your queue.");
+                }
+                else {
+                  songsLeft = data.list.length-songCount;
+                  new_rand_loc = Math.ceil(Math.random() * data.list.length);
+                  window.cheater.playlistReorder(songCount, new_rand_loc, function (data2) {
+                    if(data2.success) window.cheater.shuffleMessage.find('a').css("color","red").html(songsLeft.toString());
+                  });
+                  songCount++;
+                }
+              }, 1000);
+            } // end data.success
+            else {
+              alert("ERROR: Could not retrieve playlist info!!!");
+            }
+          }); // end playlistAll func
+        }); // end shuffleMessage click func
+
       });
     },
     destruct: function() {
       window.cheater.autoDJMessage.remove();
       window.cheater.offMessage.remove();
+      window.cheater.shuffleMessage.remove();
       double_click_check3 = true; //allow awexomer to be turned on again
     }
   });
