@@ -16,6 +16,10 @@ In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbyt
 
 ## Changelog
 
+### February 11th, 2013
+* Added Stop Animations Toggle (Code borrowed from Frick's TT+)
+* Located in the settings menu, you can now toggle on/off all animations. They will still update briefly on newsong/remdj/adddj events so your view is current.
+
 ### November 24th, 2012
 * AFK Timer fixed
 
