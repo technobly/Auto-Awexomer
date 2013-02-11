@@ -19,6 +19,8 @@ In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbyt
 ### February 11th, 2013
 * Added Stop Animations Toggle (Code borrowed from Frick's TT+)
 * Located in the settings menu, you can now toggle on/off all animations. They will still update briefly on newsong/remdj/adddj events so your view is current.
+* Added Blackout Toggle (cssInject script from Aliev's TTX http://turntablex.com)
+* Located in the settings menu, you now have the option to blackout everything except for the DJs and Marquee.  Their feet dangle sometimes... it's fun!
 
 ### November 24th, 2012
 * AFK Timer fixed
