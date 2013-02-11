@@ -3,6 +3,7 @@
  * Auto bop code by Izzmo, https://github.com/izzmo/AutoAwesomer
  * Styling examples by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
  * Stop Animations code by Frick, https://github.com/Frick/ttplus
+ * cssInject by Aliev (Turntable X), http://turntablex.com
  * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
  * Photoshop work by B^Dub
  * Last Updated: February 11th, 2013
@@ -37,6 +38,31 @@ else {
     blueStyle();
     double_click_check = false;
   }
+}
+
+function cssInject(data) {
+  var ss = document.styleSheets;
+  var original = {}; // call cssInject(original) to revert to previous state 
+  for(var i = 0; i < ss.length; i++) {
+    var rules = ss[i].cssRules || ss[i].rules;
+    if(!rules) {
+      continue;
+    }
+    for(var j = 0; j < rules.length; j++) {
+      if(!(rules[j].selectorText)) continue;
+      var selector = rules[j].selectorText;
+      var style = rules[j].style;
+      if(data[selector]) { // this rule matches! 
+        original[selector] = {};
+        for(prop in data[selector]) {
+          var new_value = data[selector][prop];
+          original[selector][prop] = style[prop];
+          style[prop] = new_value;
+        }
+      }
+    }
+  }
+  return original;
 }
 	
 function blueStyle() {
@@ -161,7 +187,48 @@ $(document).ready(function() {
     ////////////////////////////////////////////////////////////////////
     // Stop Animations code by Frick, https://github.com/Frick/ttplus //
     ////////////////////////////////////////////////////////////////////
-
+    crowd: true,
+    addCrowdToggle: function() {
+      $('#settings-dropdown').prepend('<li id="bdub-crowd" class="option">Blackout</li>');
+      $('#bdub-crowd').on("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.bdub.crowd = !window.bdub.crowd;
+        // disable crowd
+        if(window.bdub.crowd === false) {
+          $("#stage-background").hide();
+          $("#audience").hide();
+          $("#dj-table").hide();
+          cssInject({
+            '.zoom-0 #bigboard::before, .zoom-0 #bigboard::after': {
+              'top': '-54px',
+              'background': 'url("https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-04.png") -264px -178px no-repeat'
+            },
+            '.zoom-0 #songboard::before, .zoom-0 #songboard::after': {
+              'top': '-60px',
+              'background': 'url(https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-04.png) -303px -178px no-repeat'
+            }
+          });
+          $("#bdub-crowd").text("Restore Crowd");
+        } else {
+          // re-enable crowd
+          $("#stage-background").show();
+          $("#audience").show();
+          $("#dj-table").show();
+          cssInject({
+            '.zoom-0 #bigboard::before, .zoom-0 #bigboard::after': {
+              'top': '-54px',
+              'background': 'url("https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png") -264px -178px no-repeat'
+            },
+            '.zoom-0 #songboard::before, .zoom-0 #songboard::after': {
+              'top': '-60px',
+              'background': 'url(https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png) -303px -178px no-repeat'
+            }
+          });
+          $("#bdub-crowd").text("Blackout");
+        }
+      });
+    },
     vote: function(vote, callback) {
       var f = $.sha1(window.bdub.ttObj.roomId + vote + window.bdub.ttObj.currentSong._id);
       var d = $.sha1(Math.random() + "");
@@ -358,6 +425,7 @@ $(document).ready(function() {
         else
           window.bdub.showArc = false;
 
+        window.bdub.addCrowdToggle(); // Add crowd toggle button to menu
         window.bdub.addAnimationToggle(); // Add stop animations button to menu
 
         window.bdub.botMessage = $('<div id="bot-message">B^Dub\'s Auto Awexomer. <span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Turn off</a></div>');
@@ -425,6 +493,8 @@ $(document).ready(function() {
       $("#awesome-button").css("background-position","-132px -178px");
       $("#lame-button").css("background-position","0px -178px");
       var tempelement = document.getElementById("bdub-stop-animation");
+      tempelement.parentNode.removeChild(tempelement);
+      var tempelement = document.getElementById("bdub-crowd");
       tempelement.parentNode.removeChild(tempelement);
       double_click_check2 = true; //allow awexomer to be turned on again
     }
