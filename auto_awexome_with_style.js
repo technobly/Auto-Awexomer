@@ -2,9 +2,10 @@
  * Turntable.fm Auto Awexomer with Style Script
  * Auto bop code by Izzmo, https://github.com/izzmo/AutoAwesomer
  * Styling examples by billyrennekamp, https://github.com/billyrennekamp/turnTheTable
+ * Stop Animations code by Frick, https://github.com/Frick/ttplus
  * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
  * Photoshop work by B^Dub
- * Last Updated: January 21st, 2013
+ * Last Updated: February 11th, 2013
  * 
  * If you have any questions or concerns,
  * find me in http://turntable.fm/bdubs
@@ -96,6 +97,71 @@ $(document).ready(function() {
     lamed: false,
     arcInt: 0,
     deg: 0.0,
+
+    ////////////////////////////////////////////////////////////////////
+    // Stop Animations code by Frick, https://github.com/Frick/ttplus //
+    ////////////////////////////////////////////////////////////////////
+    roominfo2: null,
+    roommanager: null,
+    animations: true,
+    startAnimations: function() {
+      window.bdub.roommanager.crowds.forEach(function(crowds) {
+        crowds.forEach(function(crowd) {
+          crowd.start();
+        });
+      });
+      window.bdub.roommanager.djBooth.start();
+      // Replace speech bubbles
+      window.bdub.roommanager.speak = window.bdub.speakAnim;
+      // Show meter needle (animated movement)
+      window.bdub.roommanager.showFloater = window.bdub.floaterAnim;
+      // Replace animation option
+      $("#bdub-stop-animation").text("Stop Animations");
+    },
+    stopAnimations: function() {
+      window.bdub.roommanager.crowds.forEach(function(crowds) {
+        crowds.forEach(function(crowd) {
+          crowd.stop();
+        });
+      });
+      window.bdub.roommanager.djBooth.stop();
+      // Stop speech bubbles
+      window.bdub.speakAnim = window.bdub.roommanager.speak;
+      window.bdub.roommanager.speak = $.noop;
+      // Stop fanned/snagged animations
+      window.bdub.floaterAnim = window.bdub.roommanager.showFloater;
+      window.bdub.roommanager.showFloater = $.noop;
+      // Replace animation option
+      $("#bdub-stop-animation").text("Start Animations");
+    },
+    refreshUsers: function() {
+      // Called when RemDj, AddDj and Newsong events received to update UI
+      if(window.bdub.animations === false) {
+        window.bdub.startAnimations();
+        window.setTimeout(function() {
+          window.bdub.stopAnimations();
+        }, 500);
+      }
+    },
+    addAnimationToggle: function() {
+      $('#settings-dropdown').prepend('<li id="bdub-stop-animation" class="option">Stop Animations</li>');
+      $('#bdub-stop-animation').on("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.bdub.animations = !window.bdub.animations;
+        // disable animations
+        if(window.bdub.animations === false) {
+          window.bdub.stopAnimations();
+        } else {
+          // re-enable animations
+          window.bdub.startAnimations();
+        }
+      });
+    },
+    ////////////////////////////////////////////////////////////////////
+    // Stop Animations code by Frick, https://github.com/Frick/ttplus //
+    ////////////////////////////////////////////////////////////////////
+
     vote: function(vote, callback) {
       var f = $.sha1(window.bdub.ttObj.roomId + vote + window.bdub.ttObj.currentSong._id);
       var d = $.sha1(Math.random() + "");
@@ -180,6 +246,10 @@ $(document).ready(function() {
             window.bdub.deg += window.bdub.degAmt;
           }, 50);
         } // end if() my bots and I
+        window.bdub.refreshUsers(); // Updates UI if animations are stopped
+      }
+      else if(d.command == 'add_dj' || d.command == 'rem_dj') {
+        window.bdub.refreshUsers(); // Updates UI if animations are stopped 
       }
       else if(d.command == 'update_votes') {
         $.each(d.room.metadata.votelog, function() {
@@ -246,6 +316,32 @@ $(document).ready(function() {
     },
     init: function() {
       $('.roomView').ready(function() {
+        ////////////////////////////////////////////////////////////////////
+        // Stop Animations code by Frick, https://github.com/Frick/ttplus //
+        ////////////////////////////////////////////////////////////////////
+        var x, prop = 0;
+        if(window.bdub.roominfo2 === null) {
+          for(x in turntable) {
+            prop = turntable[x];
+            if(typeof prop === "object" && prop !== null && typeof prop.setupRoom !== 'undefined') {
+              window.bdub.roominfo2 = prop;
+              break;
+            }
+          }
+        }
+        if(window.bdub.roominfo2 !== null) {
+          for(x in window.bdub.roominfo2) {
+            prop = window.bdub.roominfo2[x];
+            if(typeof prop === "object" && prop !== null && prop.hasOwnProperty("prefix") && (prop.prefix === 'room' || prop.prefix === 'concert')) {
+              window.bdub.roommanager = prop;
+              break;
+            }
+          }
+        }
+        ////////////////////////////////////////////////////////////////////
+        // Stop Animations code by Frick, https://github.com/Frick/ttplus //
+        ////////////////////////////////////////////////////////////////////
+
         window.bdub.ttObj = window.turntable.buddyList.room;
         if(window.bdub.ttObj === null) {
           alert('Could not find turntable.fm objects. You should refresh your page and try again.');
@@ -261,6 +357,8 @@ $(document).ready(function() {
         }
         else
           window.bdub.showArc = false;
+
+        window.bdub.addAnimationToggle(); // Add stop animations button to menu
 
         window.bdub.botMessage = $('<div id="bot-message">B^Dub\'s Auto Awexomer. <span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Turn off</a></div>');
         window.bdub.botMessage.css({
@@ -326,7 +424,8 @@ $(document).ready(function() {
       window.bdub.botMessage.remove();
       $("#awesome-button").css("background-position","-132px -178px");
       $("#lame-button").css("background-position","0px -178px");
-    
+      var tempelement = document.getElementById("bdub-stop-animation");
+      tempelement.parentNode.removeChild(tempelement);
       double_click_check2 = true; //allow awexomer to be turned on again
     }
   });
