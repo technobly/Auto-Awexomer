@@ -7,6 +7,8 @@ If you're on Turntable.fm listening to music a lot, but are forgetful or too bus
 
 * Automatically votes up every song you listen to in your turntable.fm room.
 * Allows for song laming and resumes up voting on the next song.
+* Stop Animations (settings menu button toggles animations ON/OFF)
+* Blackout (settings menu button toggles crowd, dj booth and background ON/OFF)
 * Awexome is spelled with an X, for eXtremely awexome and don't you question it :P
 * Based on Izzmo's AutoAwesomer https://github.com/Izzmo/AutoAwesomer
 
