@@ -188,6 +188,7 @@ $(document).ready(function() {
     // Stop Animations code by Frick, https://github.com/Frick/ttplus //
     ////////////////////////////////////////////////////////////////////
     crowd: true,
+    crowdsave: null,
     addCrowdToggle: function() {
       $('#settings-dropdown').prepend('<li id="bdub-crowd" class="option">Blackout</li>');
       $('#bdub-crowd').on("click", function(e) {
@@ -199,7 +200,7 @@ $(document).ready(function() {
           $("#stage-background").hide();
           $("#audience").hide();
           $("#dj-table").hide();
-          cssInject({
+          window.bdub.crowdsave = cssInject({
             '.zoom-0 #bigboard::before, .zoom-0 #bigboard::after': {
               'top': '-54px',
               'background': 'url("https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-04.png") -264px -178px no-repeat'
@@ -215,16 +216,7 @@ $(document).ready(function() {
           $("#stage-background").show();
           $("#audience").show();
           $("#dj-table").show();
-          cssInject({
-            '.zoom-0 #bigboard::before, .zoom-0 #bigboard::after': {
-              'top': '-54px',
-              'background': 'url("https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png") -264px -178px no-repeat'
-            },
-            '.zoom-0 #songboard::before, .zoom-0 #songboard::after': {
-              'top': '-60px',
-              'background': 'url(https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/board-sprite-02.png) -303px -178px no-repeat'
-            }
-          });
+          cssInject(window.bdub.crowdsave);
           $("#bdub-crowd").text("Blackout");
         }
       });
