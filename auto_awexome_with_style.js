@@ -234,14 +234,48 @@ $(document).ready(function() {
     addLightKnob: function() {
       $('#header .info').css('right', '250px');
       $('#switch-room').css('right', '134px');
-      $('#header .userauth-container').css('right', '80px').after('<div style="position:absolute;top:15px;right:45px;width:30px;height:30px;background: url(https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/knob_animation.png) 0px 0px no-repeat;background-position:0px -93px"><div id="bdub-lights-knob"/></div>');
+      $('#header .userauth-container').css('right', '80px').after('<div style="position:absolute;top:15px;right:45px;width:30px;height:30px;background: url(https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/knob_animation5.png) 0px 0px no-repeat;background-position:0px -124px"><div id="bdub-lights-knob"/></div>');
       $('#bdub-lights-knob').parent().click(function() {
-        if(++window.bdub.knob_pos > 3) window.bdub.knob_pos = 0;
+        if(++window.bdub.knob_pos > 4) window.bdub.knob_pos = 0;
         switch(window.bdub.knob_pos) {
-          case 0: $("#bdub-lights-knob").parent().css("background-position","0px -93px"); window.bdub.setLights(0); break;
-          case 1: $("#bdub-lights-knob").parent().css("background-position","0px -62px"); window.bdub.setLights(1); break;
-          case 2: $("#bdub-lights-knob").parent().css("background-position","0px -31px"); window.bdub.setLights(2); break;
-          case 3: $("#bdub-lights-knob").parent().css("background-position","0px 0px"); window.bdub.setLights(3); break;
+          case 0: 
+            if(window.bdub.lights_timer != null) {
+              clearInterval(window.bdub.lights_timer);
+              window.bdub.lights_timer = null;
+            }
+            $("#bdub-lights-knob").parent().css("background-position","0px -124px"); 
+            window.bdub.setLights(0); 
+            break;
+          case 1: 
+            if(window.bdub.lights_timer != null) {
+              clearInterval(window.bdub.lights_timer);
+              window.bdub.lights_timer = null;
+            }
+            $("#bdub-lights-knob").parent().css("background-position","0px -93px"); 
+            window.bdub.setLights(1); 
+            break;
+          case 2: 
+            if(window.bdub.lights_timer != null) {
+              clearInterval(window.bdub.lights_timer);
+              window.bdub.lights_timer = null;
+            }
+            $("#bdub-lights-knob").parent().css("background-position","0px -62px"); 
+            window.bdub.setLights(2); 
+            break;
+          case 3: 
+            if(window.bdub.lights_timer != null) {
+              clearInterval(window.bdub.lights_timer);
+              window.bdub.lights_timer = null;
+            }
+            $("#bdub-lights-knob").parent().css("background-position","0px -31px"); 
+            window.bdub.setLights(3); 
+            break;
+          case 4: 
+            $("#bdub-lights-knob").parent().css("background-position","0px 0px"); 
+            window.bdub.lights_timer = setInterval(function () {
+              window.bdub.setLights(Math.floor(Math.random() * 4));
+            }, 100 );
+            break;
         }
         
       });
