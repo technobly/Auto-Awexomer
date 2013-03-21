@@ -525,6 +525,11 @@ $(document).ready(function() {
       tempelement.parentNode.removeChild(tempelement);
       var tempelement = document.getElementById("bdub-crowd");
       tempelement.parentNode.removeChild(tempelement);
+      var tempelement = document.getElementById("bdub-lights-knob");
+      tempelement.parentNode.remove(tempelement);
+      $('#header .info').css('right', '230px');
+      $('#switch-room').css('right', '110px');
+      $('#header .userauth-container').css('right', '50px');
       double_click_check2 = true; //allow awexomer to be turned on again
     }
   });
