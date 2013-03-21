@@ -451,8 +451,9 @@ $(document).ready(function() {
         else
           window.bdub.showArc = false;
 
-        window.bdub.addCrowdToggle(); // Add crowd toggle button to menu
+        window.bdub.addCrowdToggle();     // Add crowd toggle button to menu
         window.bdub.addAnimationToggle(); // Add stop animations button to menu
+        window.bdub.addLightKnob();       // Add the coolness!!
 
         window.bdub.botMessage = $('<div id="bot-message">B^Dub\'s Auto Awexomer. <span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Turn off</a></div>');
         window.bdub.botMessage.css({
@@ -476,9 +477,6 @@ $(document).ready(function() {
           window.turntable.removeEventListener("message", window.bdub.listener);
           window.bdub = null;
         });
-
-        //Add the coolness!!
-        window.bdub.addLightKnob();
 
         //var buttons = $('.roomView > div:nth-child(2) a[id]'); // 1st is Awesome button, 2nd is Lame
         $('#lame-button').unbind(); // cancel TT's default callback for the lame button, add in our own.
