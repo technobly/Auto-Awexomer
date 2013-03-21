@@ -221,6 +221,31 @@ $(document).ready(function() {
         }
       });
     },
+    updateStageUsers: 0,
+    setLights: function(level) {
+      switch(level) {
+        case 0: window.bdub.updateStageUsers = 10; window.bdub.roommanager.drawStage(0); break;
+        case 1: window.bdub.updateStageUsers = 55; window.bdub.roommanager.drawStage(1); break;
+        case 2: window.bdub.updateStageUsers = 250; window.bdub.roommanager.drawStage(2); break;
+        case 3: window.bdub.updateStageUsers = 450; window.bdub.roommanager.drawStage(3); break;
+      }
+    },
+    knob_pos: 0,
+    addLightKnob: function() {
+      $('#header .info').css('right', '250px');
+      $('#switch-room').css('right', '134px');
+      $('#header .userauth-container').css('right', '80px').after('<div style="position:absolute;top:15px;right:45px;width:30px;height:30px;background: url(https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/knob_animation.png) 0px 0px no-repeat;background-position:0px -93px"><div id="bdub-lights-knob"/></div>');
+      $('#bdub-lights-knob').parent().click(function() {
+        if(++window.bdub.knob_pos > 3) window.bdub.knob_pos = 0;
+        switch(window.bdub.knob_pos) {
+          case 0: $("#bdub-lights-knob").parent().css("background-position","0px -93px"); window.bdub.setLights(0); break;
+          case 1: $("#bdub-lights-knob").parent().css("background-position","0px -62px"); window.bdub.setLights(1); break;
+          case 2: $("#bdub-lights-knob").parent().css("background-position","0px -31px"); window.bdub.setLights(2); break;
+          case 3: $("#bdub-lights-knob").parent().css("background-position","0px 0px"); window.bdub.setLights(3); break;
+        }
+        
+      });
+    },
     vote: function(vote, callback) {
       var f = $.sha1(window.bdub.ttObj.roomId + vote + window.bdub.ttObj.currentSong._id);
       var d = $.sha1(Math.random() + "");
@@ -400,6 +425,15 @@ $(document).ready(function() {
         ////////////////////////////////////////////////////////////////////
         // Stop Animations code by Frick, https://github.com/Frick/ttplus //
         ////////////////////////////////////////////////////////////////////
+        window.bdub.roommanager.updateStage = function(e) {
+          var t = window.bdub.updateStageUsers;
+          var i = window.bdub.updateStageUsers;
+          !t || Math.abs(i - t) > 10 ? this.numDancersAtLastStageUpdate = i : i = t;
+          var n = 0;
+          i > 400 ? n = 3 : i > 200 ? n = 2 : i > 50 && (n = 1);
+          var o = this.roomData.metadata;
+          o.upvotes / o.listeners > .8 && n++, this.drawStage(Math.min(3, n), e)
+        };
 
         window.bdub.ttObj = window.turntable.buddyList.room;
         if(window.bdub.ttObj === null) {
@@ -435,13 +469,16 @@ $(document).ready(function() {
           fontFace: 'Verdana'
         });
         $('div.info').append(window.bdub.botMessage);
-        
+
         window.bdub.botMessage.find('a').click(function(e) {
           e.preventDefault();
           window.bdub.destruct();
           window.turntable.removeEventListener("message", window.bdub.listener);
           window.bdub = null;
         });
+
+        //Add the coolness!!
+        window.bdub.addLightKnob();
 
         //var buttons = $('.roomView > div:nth-child(2) a[id]'); // 1st is Awesome button, 2nd is Lame
         $('#lame-button').unbind(); // cancel TT's default callback for the lame button, add in our own.
