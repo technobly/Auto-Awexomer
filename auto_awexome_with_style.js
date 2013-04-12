@@ -466,7 +466,8 @@ $(document).ready(function() {
           var n = 0;
           i > 400 ? n = 3 : i > 200 ? n = 2 : i > 50 && (n = 1);
           var o = this.roomData.metadata;
-          o.upvotes / o.listeners > .8 && n++, this.drawStage(Math.min(3, n), e)
+          //o.upvotes / o.listeners > .8 && n++, 
+          this.drawStage(Math.min(3, n), e);
         };
 
         window.bdub.ttObj = window.turntable.buddyList.room;
