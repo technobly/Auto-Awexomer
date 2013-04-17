@@ -6,7 +6,7 @@
  * cssInject by Aliev (Turntable X), http://turntablex.com
  * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
  * Photoshop work by B^Dub
- * Last Updated: February 11th, 2013
+ * Last Updated: April 17th, 2013
  * 
  * If you have any questions or concerns,
  * find me in http://turntable.fm/bdubs
@@ -486,9 +486,11 @@ $(document).ready(function() {
         else
           window.bdub.showArc = false;
 
-        window.bdub.addCrowdToggle();     // Add crowd toggle button to menu
-        window.bdub.addAnimationToggle(); // Add stop animations button to menu
-        window.bdub.addLightKnob();       // Add the coolness!!
+        if(!TTX.Viz.settings()) {
+          window.bdub.addCrowdToggle();     // Add crowd toggle button to menu
+          window.bdub.addAnimationToggle(); // Add stop animations button to menu
+          window.bdub.addLightKnob();       // Add the coolness!!
+        }
 
         window.bdub.botMessage = $('<div id="bot-message">B^Dub\'s Auto Awexomer. <span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Turn off</a></div>');
         window.bdub.botMessage.css({
