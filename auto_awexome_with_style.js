@@ -459,17 +459,6 @@ $(document).ready(function() {
         ////////////////////////////////////////////////////////////////////
         // Stop Animations code by Frick, https://github.com/Frick/ttplus //
         ////////////////////////////////////////////////////////////////////
-        window.bdub.roommanager.updateStage = function(e) {
-          var t = window.bdub.updateStageUsers;
-          var i = window.bdub.updateStageUsers;
-          !t || Math.abs(i - t) > 10 ? this.numDancersAtLastStageUpdate = i : i = t;
-          var n = 0;
-          i > 400 ? n = 3 : i > 200 ? n = 2 : i > 50 && (n = 1);
-          var o = this.roomData.metadata;
-          //o.upvotes / o.listeners > .8 && n++, 
-          this.drawStage(Math.min(3, n), e);
-        };
-
         window.bdub.ttObj = window.turntable.buddyList.room;
         if(window.bdub.ttObj === null) {
           alert('Could not find turntable.fm objects. You should refresh your page and try again.');
@@ -487,6 +476,17 @@ $(document).ready(function() {
           window.bdub.showArc = false;
 
         if(typeof TTX === "undefined" || typeof TTX.Viz === "undefined" || typeof TTX.Viz.settings() === "undefined") {
+          window.bdub.roommanager.updateStage = function(e) {
+           var t = window.bdub.updateStageUsers;
+           var i = window.bdub.updateStageUsers;
+           !t || Math.abs(i - t) > 10 ? this.numDancersAtLastStageUpdate = i : i = t;
+           var n = 0;
+           i > 400 ? n = 3 : i > 200 ? n = 2 : i > 50 && (n = 1);
+           var o = this.roomData.metadata;
+           //o.upvotes / o.listeners > .8 && n++, 
+           this.drawStage(Math.min(3, n), e);
+          };
+        
           window.bdub.addCrowdToggle();     // Add crowd toggle button to menu
           window.bdub.addAnimationToggle(); // Add stop animations button to menu
           window.bdub.addLightKnob();       // Add the coolness!!
