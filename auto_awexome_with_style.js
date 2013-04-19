@@ -486,7 +486,7 @@ $(document).ready(function() {
         else
           window.bdub.showArc = false;
 
-        if(!TTX && !TTX.Viz.settings()) {
+        if(typeof TTX === "undefined" || typeof TTX.Viz === "undefined" || typeof TTX.Viz.settings() === "undefined") {
           window.bdub.addCrowdToggle();     // Add crowd toggle button to menu
           window.bdub.addAnimationToggle(); // Add stop animations button to menu
           window.bdub.addLightKnob();       // Add the coolness!!
