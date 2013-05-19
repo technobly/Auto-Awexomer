@@ -6,7 +6,7 @@
  * cssInject by Aliev (Turntable X), http://turntablex.com
  * Modified and made Awexomer by B^Dub, https://github.com/DubbyTT/Auto-Awexomer
  * Photoshop work by B^Dub
- * Last Updated: April 17th, 2013
+ * Last Updated: May 12th, 2013
  * 
  * If you have any questions or concerns,
  * find me in http://turntable.fm/bdubs
@@ -35,7 +35,7 @@ else {
   }
   if(double_click_check) {
     //alert("first run double");  
-    blueStyle();
+    //blueStyle();
     double_click_check = false;
   }
 }
@@ -391,7 +391,7 @@ $(document).ready(function() {
       var context = window.bdub.arc[0].getContext('2d'), $arc = $(window.bdub.arc);
       context.clearRect(0, 0, 100, 100);
       context.beginPath();
-      context.arc($arc.width()/2, $arc.height()+5, $arc.height()+2, -Math.PI, degree*Math.PI/180 - Math.PI, false);
+      context.arc($arc.width()/2, $arc.height()+7, $arc.height()+2, -Math.PI, degree*Math.PI/180 - Math.PI, false);
       context.lineWidth = 2;
       if(red)
         context.strokeStyle = 'rgb(255, 0, 0)';
@@ -459,6 +459,19 @@ $(document).ready(function() {
         ////////////////////////////////////////////////////////////////////
         // Stop Animations code by Frick, https://github.com/Frick/ttplus //
         ////////////////////////////////////////////////////////////////////
+        /*
+        window.bdub.roommanager.updateStage = function(e) {
+          var t = window.bdub.updateStageUsers;
+          var i = window.bdub.updateStageUsers;
+          !t || Math.abs(i - t) > 10 ? this.numDancersAtLastStageUpdate = i : i = t;
+          var n = 0;
+          i > 400 ? n = 3 : i > 200 ? n = 2 : i > 50 && (n = 1);
+          var o = this.roomData.metadata;
+          //o.upvotes / o.listeners > .8 && n++, 
+          this.drawStage(Math.min(3, n), e);
+        };
+        */
+
         window.bdub.ttObj = window.turntable.buddyList.room;
         if(window.bdub.ttObj === null) {
           alert('Could not find turntable.fm objects. You should refresh your page and try again.');
@@ -467,14 +480,20 @@ $(document).ready(function() {
         window.bdub.room = window.location.pathname;
         var meterObj = $('#awesome-meter');
         if(meterObj.length > 0 && meterObj.css('display') != 'none') {
-          var meter = meterObj.position();
-          window.bdub.arc = $('<canvas id="bdub-arc" width="' + meterObj.width() + '" height="' + parseInt(meterObj.height()*0.39) + '" style="overflow: hidden; position: absolute; z-index: 20000; top: ' + meter.top + 'px; left: ' + meter.left + 'px;">B\^Dub\'s Auto Awesomer</canvas>');
+          //var meter = meterObj.position();
+          var top = meterObj[0].style.top,
+            left = meterObj[0].style.left;
+          window.bdub.arc = $('<canvas id="bdub-arc" width="' + meterObj.width() + '" height="' + parseInt(meterObj.height()*0.39) + '" style="overflow: hidden; position: absolute; z-index: 20000; top: ' + top + 'px; left: ' + left + 'px;">B\^Dub\'s Auto Awesomer</canvas>');
          window.bdub.arc.prependTo(meterObj.parent());
           window.bdub.showArc = true;
         }
-        else
+        else {
+          console.log('Could not find awexomer-meter.');
           window.bdub.showArc = false;
+        }
 
+
+/*
         if(typeof TTX === "undefined" || typeof TTX.Viz === "undefined" || typeof TTX.Viz.settings() === "undefined") {
           window.bdub.roommanager.updateStage = function(e) {
            var t = window.bdub.updateStageUsers;
@@ -490,7 +509,7 @@ $(document).ready(function() {
           window.bdub.addCrowdToggle();     // Add crowd toggle button to menu
           window.bdub.addAnimationToggle(); // Add stop animations button to menu
           window.bdub.addLightKnob();       // Add the coolness!!
-        }
+        */
 
         window.bdub.botMessage = $('<div id="bot-message">B^Dub\'s Auto Awexomer. <span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Turn off</a></div>');
         window.bdub.botMessage.css({
@@ -554,6 +573,7 @@ $(document).ready(function() {
       window.bdub.stop();
       window.bdub.arc.remove();
       window.bdub.botMessage.remove();
+      /*
       $("#awesome-button").css("background-position","-132px -178px");
       $("#lame-button").css("background-position","0px -178px");
       var tempelement = document.getElementById("bdub-stop-animation");
@@ -565,6 +585,7 @@ $(document).ready(function() {
       $('#header .info').css('right', '230px');
       $('#switch-room').css('right', '110px');
       $('#header .userauth-container').css('right', '50px');
+      */
       double_click_check2 = true; //allow awexomer to be turned on again
     }
   });
