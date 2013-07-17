@@ -188,13 +188,13 @@ $(document).ready(function() {
 
         window.cheater.offMessage =          $('<div id="off-message"><span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Ch</a></div>');
         window.cheater.autoDJMessage =       $('<div id="autodj-message">eater!!!: <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">|OFF|</a></div>');
-        window.cheater.offMessage.css({      position: 'absolute', color: '#ADADAD', top: '44px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
-        window.cheater.autoDJMessage.css({   position: 'absolute', color: '#ADADAD', top: '44px', left: '13px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
+        window.cheater.offMessage.css({      position: 'absolute', color: '#ADADAD', top: '-1px', left: '68px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
+        window.cheater.autoDJMessage.css({   position: 'absolute', color: '#ADADAD', top: '-1px', left: '81px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
         window.cheater.shuffleMessage =      $('<div id="shuffle-message"><a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">|shuffle|</a></div>');
-        window.cheater.shuffleMessage.css({  position: 'absolute', color: '#ADADAD', top: '44px', left: '100px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'}); 
+        window.cheater.shuffleMessage.css({  position: 'absolute', color: '#ADADAD', top: '-1px', left: '168px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'}); 
         
         
-        $('div.info').append(window.cheater.offMessage);
+        $('.header-content').first().append(window.cheater.offMessage);
         window.cheater.offMessage.find('a').click(function(e) {
           e.preventDefault();
           window.cheater.destruct();
@@ -202,7 +202,7 @@ $(document).ready(function() {
           window.cheater = null;
         });
 
-        $('div.info').append(window.cheater.autoDJMessage);
+        $('.header-content').first().append(window.cheater.autoDJMessage);
         window.cheater.autoDJMessage.find('a').click(function(e) {
           e.preventDefault();
           window.cheater.autoDJCnt++;
@@ -222,7 +222,7 @@ $(document).ready(function() {
           window.cheater.isDj = window.cheater.contains(data.room.metadata.djs,window.turntable.user.id);
         });
 
-        $('div.info').append(window.cheater.shuffleMessage);
+        $('.header-content').first().append(window.cheater.shuffleMessage);
         window.cheater.shuffleMessage.find('a').click(function(msg8) {
           msg8.preventDefault();
           window.cheater.shuffleMessage.find('a').css("color","red").html("|WAIT|");

@@ -337,7 +337,8 @@ $(document).ready(function() {
         window.bdub.botMessage.css({
           position: 'fixed',
           color: '#ADADAD',
-          top: '0px',
+          top: '-17px',
+          left: '322px',
           zIndex: '5000',
           textAlign: 'left',
           paddingLeft: '6px',
@@ -347,7 +348,7 @@ $(document).ready(function() {
           fontSize: '10px',
           fontFace: 'Verdana'
         });
-        $('div.info').append(window.bdub.botMessage);
+        $('.header-content').first().append(window.bdub.botMessage);
 
         window.bdub.botMessage.find('a').click(function(e) {
           e.preventDefault();
