@@ -338,7 +338,7 @@ $(document).ready(function() {
           position: 'fixed',
           color: '#ADADAD',
           top: '-17px',
-          left: '-68px',
+          left: '68px',
           zIndex: '5000',
           textAlign: 'left',
           paddingLeft: '6px',
