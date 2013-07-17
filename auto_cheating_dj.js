@@ -144,7 +144,7 @@ $(document).ready(function() {
         window.cheater.offMessage.css({      position: 'absolute', color: '#ADADAD', top: '-1px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});
         window.cheater.autoDJMessage.css({   position: 'absolute', color: '#ADADAD', top: '-1px', left: '13px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'});        
         
-        $('div.info').append(window.cheater.offMessage);
+        $('.header-content').first().append(window.cheater.offMessage);
         window.cheater.offMessage.find('a').click(function(e) {
           e.preventDefault();
           window.cheater.destruct();
@@ -152,7 +152,7 @@ $(document).ready(function() {
           window.cheater = null;
         });
 
-        $('div.info').append(window.cheater.autoDJMessage);
+        $('.header-content').first().append(window.cheater.autoDJMessage);
         window.cheater.autoDJMessage.find('a').click(function(e) {
           e.preventDefault();
           window.cheater.autoDJCnt++;
