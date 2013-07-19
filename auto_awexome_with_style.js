@@ -329,7 +329,7 @@ $(document).ready(function() {
 
         window.bdub.botMessage = $('<div id="bot-message">B^Dub\'s Auto Awexomer. <span style="font-style: italic;"></span> <a href="#" style="text-decoration: none; color: yellow; font-weight: bold;">Turn off</a></div>');
         window.bdub.botMessage.css({
-          position: 'fixed',
+          position: 'absolute',
           color: '#ADADAD',
           top: '0px',
           left: '95px',
