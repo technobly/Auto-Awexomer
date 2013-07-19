@@ -233,7 +233,7 @@ $(document).ready(function() {
         }
         window.bdub.room = window.location.pathname;
 
-        $('a.logo').hide();
+        $('a.header-logo').hide();
         window.bdub.tt1 = $('<div id="tt1">\&nbsp\;</div>');
         window.bdub.tt1.css({
           "position": "absolute",
@@ -389,7 +389,7 @@ $(document).ready(function() {
       window.bdub.tt4.remove();
       window.bdub.tt5.remove();
       window.bdub.tt6.remove();
-      $('a.logo').show();
+      $('a.header-logo').show();
       double_click_check2 = true; //allow awexomer to be turned on again
     }
   });

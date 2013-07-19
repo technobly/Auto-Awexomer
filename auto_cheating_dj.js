@@ -194,7 +194,7 @@ $(document).ready(function() {
         window.cheater.shuffleMessage.css({  position: 'absolute', color: '#ADADAD', top: '44px', left: '100px', zIndex: '5000', textAlign: 'left', paddingLeft: '6px', paddingTop: '2px', paddingRight: '2px', paddingBottom: '2px', fontSize: '10px', fontFace: 'Verdana'}); 
         
         
-        $('div.info').append(window.cheater.offMessage);
+        $('div.header-content').append(window.cheater.offMessage);
         window.cheater.offMessage.find('a').click(function(e) {
           e.preventDefault();
           window.cheater.destruct();
@@ -202,7 +202,7 @@ $(document).ready(function() {
           window.cheater = null;
         });
 
-        $('div.info').append(window.cheater.autoDJMessage);
+        $('div.header-content').append(window.cheater.autoDJMessage);
         window.cheater.autoDJMessage.find('a').click(function(e) {
           e.preventDefault();
           window.cheater.autoDJCnt++;
@@ -222,7 +222,7 @@ $(document).ready(function() {
           window.cheater.isDj = window.cheater.contains(data.room.metadata.djs,window.turntable.user.id);
         });
 
-        $('div.info').append(window.cheater.shuffleMessage);
+        $('div.header-content').append(window.cheater.shuffleMessage);
         window.cheater.shuffleMessage.find('a').click(function(msg8) {
           msg8.preventDefault();
           window.cheater.shuffleMessage.find('a').css("color","red").html("|WAIT|");
