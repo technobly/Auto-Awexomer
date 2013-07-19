@@ -240,8 +240,8 @@ $(document).ready(function() {
           "top": "50%",
           "left": "5px",
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt1.png') 0 0 no-repeat",
-          "width": "102px",
-          "height": "60px",
+          "width": "90px",
+          "height": "42px",
           "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1001"
@@ -252,8 +252,8 @@ $(document).ready(function() {
           "top": "50%",
           "left": "5px",
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt2.png') 0 0 no-repeat",
-          "width": "102px",
-          "height": "60px",
+          "width": "90px",
+          "height": "42px",
           "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1002",
@@ -262,11 +262,11 @@ $(document).ready(function() {
         window.bdub.tt3 = $('<div id="tt3">\&nbsp\;</div>');
         window.bdub.tt3.css({
           "position": "absolute",
-          "top": "50%",
-          "left": "5px",
+          "top": "0px",
+          "left": "0px",
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt3.png') 0 0 no-repeat",
-          "width": "102px",
-          "height": "60px",
+          "width": "90px",
+          "height": "42px",
           "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1003"
@@ -274,11 +274,11 @@ $(document).ready(function() {
         window.bdub.tt4 = $('<div id="tt4">\&nbsp\;</div>');
         window.bdub.tt4.css({
           "position": "absolute",
-          "top": "50%",
-          "left": "5px",
+          "top": "0px",
+          "left": "0px",
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt4.png') 0 0 no-repeat",
-          "width": "102px",
-          "height": "60px",
+          "width": "90px",
+          "height": "42px",
           "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1006"
@@ -286,11 +286,11 @@ $(document).ready(function() {
         window.bdub.tt5 = $('<div id="tt5">\&nbsp\;</div>');
         window.bdub.tt5.css({
           "position": "absolute",
-          "top": "50%",
-          "left": "5px",
+          "top": "0px",
+          "left": "0px",
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt5.png') 0 0 no-repeat",
-          "width": "102px",
-          "height": "60px",
+          "width": "90px",
+          "height": "42px",
           "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1005"
@@ -298,21 +298,21 @@ $(document).ready(function() {
         window.bdub.tt6 = $('<div id="tt6">\&nbsp\;</div>');
         window.bdub.tt6.css({
           "position": "absolute",
-          "top": "50%",
-          "left": "5px",
+          "top": "0px",
+          "left": "0px",
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt6.png') 0 0 no-repeat",
-          "width": "102px",
-          "height": "60px",
+          "width": "90px",
+          "height": "42px",
           "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1004"
         });
-        $('div#header').append(window.bdub.tt3);
-        $('div#header').append(window.bdub.tt1);
-        $('div#header').append(window.bdub.tt2);
-        $('div#header').append(window.bdub.tt4);
-        $('div#header').append(window.bdub.tt5);
-        $('div#header').append(window.bdub.tt6);
+        $('div.header-content').append(window.bdub.tt3);
+        $('div.header-content').append(window.bdub.tt1);
+        $('div.header-content').append(window.bdub.tt2);
+        $('div.header-content').append(window.bdub.tt4);
+        $('div.header-content').append(window.bdub.tt5);
+        $('div.header-content').append(window.bdub.tt6);
         $('div#tt5').hide();
         $('div#tt6').hide();
         $('div#tt4').hide();
@@ -338,6 +338,7 @@ $(document).ready(function() {
           position: 'fixed',
           color: '#ADADAD',
           top: '0px',
+          left: '95px',
           zIndex: '5000',
           textAlign: 'left',
           paddingLeft: '6px',
@@ -347,7 +348,7 @@ $(document).ready(function() {
           fontSize: '10px',
           fontFace: 'Verdana'
         });
-        $('div.info').append(window.bdub.botMessage);
+        $('div.header-content').append(window.bdub.botMessage);
 
         window.bdub.botMessage.find('a').click(function(e) {
           e.preventDefault();
