@@ -237,24 +237,22 @@ $(document).ready(function() {
         window.bdub.tt1 = $('<div id="tt1">\&nbsp\;</div>');
         window.bdub.tt1.css({
           "position": "absolute",
-          "top": "50%",
-          "left": "5px",
+          "top": "0px",
+          "left": "0px",
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt1.png') 0 0 no-repeat",
           "width": "90px",
           "height": "42px",
-          "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1001"
         });
         window.bdub.tt2 = $('<div id="tt2">\&nbsp\;</div>');
         window.bdub.tt2.css({
           "position": "absolute",
-          "top": "50%",
-          "left": "5px",
+          "top": "0px",
+          "left": "0px",
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt2.png') 0 0 no-repeat",
           "width": "90px",
           "height": "42px",
-          "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1002",
           "-webkit-transition": "background-position 50ms linear"
@@ -267,7 +265,6 @@ $(document).ready(function() {
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt3.png') 0 0 no-repeat",
           "width": "90px",
           "height": "42px",
-          "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1003"
         });
@@ -279,7 +276,6 @@ $(document).ready(function() {
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt4.png') 0 0 no-repeat",
           "width": "90px",
           "height": "42px",
-          "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1006"
         });
@@ -291,7 +287,6 @@ $(document).ready(function() {
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt5.png') 0 0 no-repeat",
           "width": "90px",
           "height": "42px",
-          "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1005"
         });
@@ -303,7 +298,6 @@ $(document).ready(function() {
           "background": "url('https://raw.github.com/DubbyTT/Auto-Awexomer/master/images/tt6.png') 0 0 no-repeat",
           "width": "90px",
           "height": "42px",
-          "margin-top": "-31px",
           "cursor": "pointer",
           "z-index": "1004"
         });
@@ -341,10 +335,6 @@ $(document).ready(function() {
           left: '95px',
           zIndex: '5000',
           textAlign: 'left',
-          paddingLeft: '6px',
-          paddingTop: '2px',
-          paddingRight: '3px',
-          paddingBottom: '3px',
           fontSize: '10px',
           fontFace: 'Verdana'
         });
