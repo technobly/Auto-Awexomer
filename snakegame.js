@@ -1,6 +1,6 @@
 /**
  * Turntable.fm Snake Sticker Game by B^Dub, https://github.com/Technobly
- * Written: January 7th, 2013
+ * Written: November 2012
  * Released to public domain: November 25th, 2013
  * 
  * If you have any questions or concerns,
