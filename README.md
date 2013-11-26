@@ -14,7 +14,7 @@ If you're on Turntable.fm listening to music a lot, but are forgetful or too bus
 
 ## Download
 
-In order to use the Auto Awexomer, please visit my Git Hub page at http://dubbytt.github.com/Auto-Awexomer/ for instructions on how to add it to your bookmarks bar and get it up and running.
+In order to use the Auto Awexomer or Snake Game, please visit my Git Hub page at http://technobly.github.com/Auto-Awexomer/ for instructions on how to add it to your bookmarks bar and get it up and running.
 
 ## Changelog
 
